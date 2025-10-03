@@ -8,6 +8,7 @@
     "build": "rsbuild build -c rsbuild.config.ts && rsbuild build -c rsbuild.config.server.ts",
     "build:client": "rsbuild build -c rsbuild.config.ts",
     "build:cloudflare": "rsbuild build -c rsbuild.config.cloudflare.ts",
+    "cf:deploy": "npm install --legacy-peer-deps && npm run build:cloudflare",
     "build:server": "rsbuild build -c rsbuild.config.server.ts",
     "type-check": "tsc -b --pretty",
     "lint": "tsc -b --pretty",
