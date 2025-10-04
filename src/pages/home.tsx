@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Github } from "lucide-react";
 import { 
   Brain, 
   Clock, 
@@ -69,6 +70,17 @@ export default function Home() {
                   历史记录
                 </Link>
               </Button>
+              {/* GitHub 链接 */}
+  <Button variant="ghost" size="sm" asChild>
+    <a 
+      href="https://github.com/banlanzs/Sexual-Repression-Calculator" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="flex items-center"
+    >
+      <Github className="w-4 h-4" />
+    </a>
+  </Button>
             </div>
           </div>
         </nav>
