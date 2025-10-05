@@ -3,32 +3,17 @@
  * 提供完整的题目概览和横向选项布局
  */
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-} from '@/components/ui/dialog';
-import { CheckCircle, AlertCircle, ArrowLeft, ArrowRight, BarChart3, ChevronLeft, ChevronRight, ArrowUp } from 'lucide-react';
-import { Question, Response, Demographics } from '@/types';
-import {
-  ALL_SCALES,
-  QUICK_ASSESSMENT_SCALES,
-  FULL_ASSESSMENT_SCALES,
-  getAdaptiveScales,
-  getAdaptiveFullScales,
-  isMinor,
-  isInexperienced,
-  getUserGroupDescription
-} from '@/lib/scales';
+import React, {useEffect, useRef, useState} from 'react';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {RadioGroup, RadioGroupItem} from '@/components/ui/radio-group';
+import {Label} from '@/components/ui/label';
+import {Badge} from '@/components/ui/badge';
+import {Progress} from '@/components/ui/progress';
+import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader,} from '@/components/ui/dialog';
+import {AlertCircle, ArrowLeft, ArrowUp, BarChart3, CheckCircle, ChevronLeft, ChevronRight} from 'lucide-react';
+import {Demographics, Question, Response} from '@/types';
+import {ALL_SCALES, getAdaptiveFullScales, getAdaptiveScales, getUserGroupDescription} from '@/lib/scales';
 
 interface QuestionnaireListProps {
   type: 'quick' | 'full';

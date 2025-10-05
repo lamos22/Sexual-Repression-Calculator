@@ -3,12 +3,7 @@
  * 实现评估历史保存、数据导出、隐私保护等功能
  */
 
-import { 
-  AssessmentSession, 
-  StorageData, 
-  ExportData, 
-  NormativeData 
-} from '@/types';
+import {AssessmentSession, ExportData, NormativeData, StorageData} from '@/types';
 
 const STORAGE_KEY = 'sri_assessment_data';
 const STORAGE_VERSION = '1.0.0';

@@ -3,7 +3,8 @@
  * 包含SIS/SES-SF、Mosher性内疚、KISS-9性羞耻、SOS筛查版等
  */
 
-import { Scale, Question, LIKERT_OPTIONS, FREQUENCY_OPTIONS } from '@/types';
+import {FREQUENCY_OPTIONS, LIKERT_OPTIONS, Scale} from '@/types';
+import {SEXUAL_COGNITION, SIS_SES_ADAPTED, TEEN_SEXUAL_ATTITUDES} from './adaptive-scales';
 
 // SIS/SES-SF 14项量表 (Sexual Inhibition/Sexual Excitation Scale - Short Form)
 export const SIS_SES_SF: Scale = {
@@ -1215,16 +1216,6 @@ export const DEMOGRAPHICS_QUESTIONS = [
 
 // 导入适应性量表
 export * from './adaptive-scales';
-import { 
-  TEEN_SEXUAL_ATTITUDES, 
-  SEXUAL_COGNITION, 
-  SIS_SES_ADAPTED,
-  getAdaptiveScales,
-  getAdaptiveFullScales,
-  isMinor,
-  isInexperienced,
-  getUserGroupDescription 
-} from './adaptive-scales';
 
 // 所有量表的集合
 export const ALL_SCALES = {

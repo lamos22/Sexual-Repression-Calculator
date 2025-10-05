@@ -4,10 +4,10 @@
  */
 
 import React from 'react';
-import { Progress } from '@/components/ui/progress';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Clock, Target, TrendingUp } from 'lucide-react';
+import {Progress} from '@/components/ui/progress';
+import {Card, CardContent} from '@/components/ui/card';
+import {Badge} from '@/components/ui/badge';
+import {Clock, Target, TrendingUp} from 'lucide-react';
 
 interface ProgressIndicatorProps {
   current: number;

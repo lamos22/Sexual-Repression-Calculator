@@ -3,34 +3,32 @@
  * 提供专业的心理测评结果展示和个性化建议
  */
 
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Separator } from '@/components/ui/separator';
-import { 
-  Brain, 
-  Home, 
-  Download, 
-  Share2, 
-  BarChart3, 
-  TrendingUp, 
-  Shield, 
-  Info,
-  CheckCircle,
-  AlertCircle,
-  RefreshCw,
-  ArrowLeft,
-  Clock
+import React, {useEffect, useState} from 'react';
+import {useNavigate, useSearchParams} from 'react-router-dom';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Badge} from '@/components/ui/badge';
+import {Progress} from '@/components/ui/progress';
+import {Separator} from '@/components/ui/separator';
+import {
+    AlertCircle,
+    BarChart3,
+    Brain,
+    CheckCircle,
+    Clock,
+    Download,
+    Home,
+    Info,
+    RefreshCw,
+    Shield,
+    TrendingUp
 } from 'lucide-react';
-import { AssessmentSession, SRIResult, SRI_LEVELS } from '@/types';
-import { getAssessmentSession, downloadAsJSON, diagnoseStorage } from '@/lib/storage';
-import { ALL_SCALES } from '@/lib/scales';
-import { ShareResult, ShareButtonMobile, SocialShareFloating, ShareView } from '@/components/common';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { decodeShareData } from '@/lib/share-utils';
+import {AssessmentSession, SRI_LEVELS} from '@/types';
+import {diagnoseStorage, downloadAsJSON, getAssessmentSession} from '@/lib/storage';
+import {ALL_SCALES} from '@/lib/scales';
+import {ShareButtonMobile, ShareResult, SocialShareFloating} from '@/components/common';
+import {useIsMobile} from '@/hooks/use-mobile';
+import {decodeShareData} from '@/lib/share-utils';
 
 export default function Results() {
   const navigate = useNavigate();

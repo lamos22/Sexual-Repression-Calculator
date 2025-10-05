@@ -4,11 +4,11 @@
  */
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Brain, BarChart3, Sparkles } from 'lucide-react';
-import { AssessmentSession, SRI_LEVELS } from '@/types';
+import {Card, CardContent} from '@/components/ui/card';
+import {Badge} from '@/components/ui/badge';
+import {Progress} from '@/components/ui/progress';
+import {BarChart3, Brain, Sparkles} from 'lucide-react';
+import {AssessmentSession, SRI_LEVELS} from '@/types';
 
 interface ShareCardProps {
   session: AssessmentSession;

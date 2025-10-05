@@ -3,16 +3,8 @@
  * 实现z分数标准化、四维度计算、SRI指数合成等功能
  */
 
-import { 
-  Response, 
-  ScaleScore, 
-  DimensionScores, 
-  SRIResult, 
-  AssessmentResults,
-  NormativeData,
-  SRI_LEVELS 
-} from '@/types';
-import { ALL_SCALES } from '@/lib/scales';
+import {AssessmentResults, DimensionScores, NormativeData, Response, ScaleScore, SRI_LEVELS, SRIResult} from '@/types';
+import {ALL_SCALES} from '@/lib/scales';
 
 /**
  * 标准正态分布累积分布函数 (CDF)

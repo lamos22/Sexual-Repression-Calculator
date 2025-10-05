@@ -3,11 +3,11 @@
  * 提供友好的成功反馈和后续操作建议
  */
 
-import React, { useEffect, useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { CheckCircle, Share2, Sparkles, ArrowRight, Heart, Users } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Card, CardContent} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {ArrowRight, CheckCircle, Heart, Share2, Sparkles, Users} from 'lucide-react';
+import {useNavigate} from 'react-router-dom';
 
 export interface ShareSuccessProps {
   show: boolean;

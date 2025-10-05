@@ -4,9 +4,9 @@
  */
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
-import { Loader2, Brain, Shield, BarChart3 } from 'lucide-react';
+import {Card} from '@/components/ui/card';
+import {Progress} from '@/components/ui/progress';
+import {BarChart3, Brain, Loader2, Shield} from 'lucide-react';
 
 interface LoadingScreenProps {
   title?: string;

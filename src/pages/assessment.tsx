@@ -3,28 +3,28 @@
  * 负责管理整个评估流程，包括知情同意、人口学信息、量表问卷等
  */
 
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
+import React, {useEffect, useRef, useState} from 'react';
+import {useNavigate, useSearchParams} from 'react-router-dom';
+import {Card} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Progress} from '@/components/ui/progress';
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
-import { AlertTriangle, CheckCircle, ArrowLeft, Home, Brain } from 'lucide-react';
-import { AssessmentSession, Demographics, Response } from '@/types';
-import { calculateAssessmentResults } from '@/lib/calculator';
-import { saveAssessmentSession } from '@/lib/storage';
-import { ConsentForm } from '@/components/assessment/consent-form';
-import { DemographicsForm } from '@/components/assessment/demographics-form';
-import { QuestionnaireSection } from '@/components/assessment/questionnaire-section';
+import {AlertTriangle, ArrowLeft, Brain, CheckCircle, Home} from 'lucide-react';
+import {AssessmentSession, Demographics, Response} from '@/types';
+import {calculateAssessmentResults} from '@/lib/calculator';
+import {saveAssessmentSession} from '@/lib/storage';
+import {ConsentForm} from '@/components/assessment/consent-form';
+import {DemographicsForm} from '@/components/assessment/demographics-form';
+import {QuestionnaireSection} from '@/components/assessment/questionnaire-section';
 
 type AssessmentStep = 'consent' | 'demographics' | 'questionnaire' | 'processing' | 'completed';
 

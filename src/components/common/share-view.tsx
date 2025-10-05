@@ -4,24 +4,14 @@
  */
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Separator } from '@/components/ui/separator';
-import {
-  Brain,
-  Home,
-  BarChart3,
-  Target,
-  Users,
-  Sparkles,
-  ArrowRight,
-  Heart,
-  CheckCircle
-} from 'lucide-react';
-import { AssessmentSession, SRI_LEVELS } from '@/types';
+import {useNavigate} from 'react-router-dom';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Badge} from '@/components/ui/badge';
+import {Progress} from '@/components/ui/progress';
+import {Separator} from '@/components/ui/separator';
+import {ArrowRight, BarChart3, Brain, CheckCircle, Heart, Home, Sparkles, Target, Users} from 'lucide-react';
+import {AssessmentSession, SRI_LEVELS} from '@/types';
 
 interface ShareViewProps {
   session: AssessmentSession;

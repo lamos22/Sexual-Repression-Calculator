@@ -3,14 +3,14 @@
  * 遵循最小化数据收集原则，保护用户隐私
  */
 
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
-import { Users, ArrowLeft, ArrowRight } from 'lucide-react';
-import { Demographics } from '@/types';
-import { DEMOGRAPHICS_QUESTIONS } from '@/lib/scales';
+import React, {useState} from 'react';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {RadioGroup, RadioGroupItem} from '@/components/ui/radio-group';
+import {Label} from '@/components/ui/label';
+import {ArrowLeft, ArrowRight, Users} from 'lucide-react';
+import {Demographics} from '@/types';
+import {DEMOGRAPHICS_QUESTIONS} from '@/lib/scales';
 
 interface DemographicsFormProps {
   onSubmit: (demographics: Demographics) => void;

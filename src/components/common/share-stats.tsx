@@ -3,20 +3,11 @@
  * 提供分享次数、影响力等信息展示
  */
 
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { 
-  TrendingUp, 
-  Users, 
-  Share2, 
-  Heart, 
-  Sparkles, 
-  Target,
-  Award,
-  Globe
-} from 'lucide-react';
+import React, {useEffect, useState} from 'react';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Badge} from '@/components/ui/badge';
+import {Progress} from '@/components/ui/progress';
+import {Award, Globe, Heart, Share2, Sparkles, Target, TrendingUp, Users} from 'lucide-react';
 
 export interface ShareStatsProps {
   className?: string;

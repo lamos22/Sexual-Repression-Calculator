@@ -4,25 +4,24 @@
  */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { 
-  Brain, 
-  BookOpen, 
-  Home, 
-  Users, 
-  BarChart3, 
-  Award, 
-  Target,
-  FileText,
-  Globe,
-  Microscope,
-  TrendingUp,
-  Shield,
-  CheckCircle
+import {Link} from 'react-router-dom';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Badge} from '@/components/ui/badge';
+import {
+    Award,
+    BarChart3,
+    BookOpen,
+    Brain,
+    CheckCircle,
+    FileText,
+    Globe,
+    Home,
+    Microscope,
+    Shield,
+    Target,
+    TrendingUp,
+    Users
 } from 'lucide-react';
 
 export default function Science() {

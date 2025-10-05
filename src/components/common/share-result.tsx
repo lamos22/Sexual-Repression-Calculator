@@ -3,36 +3,24 @@
  * 支持微博、朋友圈、QQ空间、复制链接等分享方式
  */
 
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Separator } from '@/components/ui/separator';
+import React, {useState} from 'react';
+import {Card, CardContent} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Badge} from '@/components/ui/badge';
+import {Progress} from '@/components/ui/progress';
+import {Alert, AlertDescription} from '@/components/ui/alert';
+import {Separator} from '@/components/ui/separator';
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
 } from '@/components/ui/dialog';
-import {
-  Share2,
-  Link,
-  Copy,
-  QrCode,
-  MessageCircle,
-  Heart,
-  ExternalLink,
-  CheckCircle2,
-  Brain,
-  BarChart3,
-  Smartphone
-} from 'lucide-react';
-import { AssessmentSession, SRI_LEVELS } from '@/types';
-import { generateShareText, generateShareUrl, copyToClipboard, generateQRCode, socialShareUrls } from '@/lib/share-utils';
+import {Brain, CheckCircle2, Copy, Heart, Link, MessageCircle, QrCode, Share2, Smartphone} from 'lucide-react';
+import {AssessmentSession, SRI_LEVELS} from '@/types';
+import {copyToClipboard, generateQRCode, generateShareText, generateShareUrl, socialShareUrls} from '@/lib/share-utils';
 
 export interface ShareResultProps {
   session: AssessmentSession;

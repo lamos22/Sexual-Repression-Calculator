@@ -3,8 +3,8 @@
  * 包括分享文案生成、URL构建、社交媒体分享链接等
  */
 
-import { AssessmentSession, SRI_LEVELS, SRIResult } from '@/types';
-import { getAssessmentSession } from '@/lib/storage';
+import {AssessmentSession, SRI_LEVELS, SRIResult} from '@/types';
+import {getAssessmentSession} from '@/lib/storage';
 
 /**
  * 生成分享文案

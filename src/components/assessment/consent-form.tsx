@@ -3,12 +3,12 @@
  * 提供专业的伦理保护和透明的信息披露
  */
 
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { AlertTriangle, Shield, Eye, Users, FileText } from 'lucide-react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import React, {useState} from 'react';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Checkbox} from '@/components/ui/checkbox';
+import {AlertTriangle, Eye, FileText, Shield, Users} from 'lucide-react';
+import {Alert, AlertDescription} from '@/components/ui/alert';
 
 interface ConsentFormProps {
   onConsent: (consented: boolean) => void;

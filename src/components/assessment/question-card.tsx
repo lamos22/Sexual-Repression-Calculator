@@ -3,15 +3,15 @@
  * 提供清晰的交互界面和视觉反馈
  */
 
-import React, { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
-import { SkipForward, AlertCircle } from 'lucide-react';
-import { Question, QuestionOption, Response } from '@/types';
-import { ALL_SCALES } from '@/lib/scales';
+import React, {useState} from 'react';
+import {Card, CardContent} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {RadioGroup, RadioGroupItem} from '@/components/ui/radio-group';
+import {Label} from '@/components/ui/label';
+import {Badge} from '@/components/ui/badge';
+import {AlertCircle, SkipForward} from 'lucide-react';
+import {Question, QuestionOption, Response} from '@/types';
+import {ALL_SCALES} from '@/lib/scales';
 
 interface QuestionCardProps {
   question: Question;

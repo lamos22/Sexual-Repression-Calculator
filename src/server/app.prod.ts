@@ -1,6 +1,6 @@
-import { Hono } from "hono";
-import { serveStatic } from "hono/deno";
-import { setupRoutes } from "./routes";
+import {Hono} from "hono";
+import {serveStatic} from "hono/deno";
+import {setupRoutes} from "./routes";
 
 const app = new Hono();
 

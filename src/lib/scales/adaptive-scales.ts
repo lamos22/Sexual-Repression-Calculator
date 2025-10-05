@@ -3,8 +3,7 @@
  * 为未成年人和无性经验用户提供适合的评估内容
  */
 
-import { Scale, Question, LIKERT_OPTIONS, FREQUENCY_OPTIONS } from '@/types';
-import { Demographics } from '@/types';
+import {Demographics, LIKERT_OPTIONS, Scale} from '@/types';
 
 // 青少年性态度量表（适用于14-17岁）
 export const TEEN_SEXUAL_ATTITUDES: Scale = {
