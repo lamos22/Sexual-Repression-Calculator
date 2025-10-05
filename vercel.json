@@ -1,10 +1,15 @@
 {
     "version": 2,
-    "functions": {
-        "src/server/**/*.ts": {
-            "runtime": "edge"
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build"
+        },
+        {
+            "src": "src/server/**/*.ts",
+            "use": "@vercel/deno"
         }
-    },
+    ],
     "routes": [
         {
             "src": "/api/(.*)",
