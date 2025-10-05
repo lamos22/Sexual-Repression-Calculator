@@ -1,19 +1,22 @@
 {
-    "version": 2,
+    "version": 3,
     "builds": [
         {
             "src": "package.json",
-            "use": "@vercel/static-build"
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
         },
         {
-            "src": "src/server/**/*.ts",
-            "use": "@vercel/deno"
+            "src": "server/**/*.ts",
+            "use": "@vercel/deno-edge"
         }
     ],
     "routes": [
         {
             "src": "/api/(.*)",
-            "dest": "src/server/$1.ts"
+            "dest": "/server/$1.ts"
         },
         {
             "src": "/(.*)",
