@@ -51,23 +51,23 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/guide">
-                  <BookOpen className="w-4 h-4 mr-2" />
-                  使用指南
+            <div className="flex items-center gap-1 sm:gap-4">
+              <Button variant="ghost" size="sm" asChild className="h-auto py-1.5">
+                <Link to="/guide" className="flex flex-col sm:flex-row items-center gap-0.5 sm:gap-2">
+                  <BookOpen className="w-4 h-4" />
+                  <span className="text-[10px] sm:text-sm">使用指南</span>
                 </Link>
               </Button>
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/science">
-                  <FileText className="w-4 h-4 mr-2" />
-                  科学依据
+              <Button variant="ghost" size="sm" asChild className="h-auto py-1.5">
+                <Link to="/science" className="flex flex-col sm:flex-row items-center gap-0.5 sm:gap-2">
+                  <FileText className="w-4 h-4" />
+                  <span className="text-[10px] sm:text-sm">科学依据</span>
                 </Link>
               </Button>
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/history">
-                  <History className="w-4 h-4 mr-2" />
-                  历史记录
+              <Button variant="ghost" size="sm" asChild className="h-auto py-1.5">
+                <Link to="/history" className="flex flex-col sm:flex-row items-center gap-0.5 sm:gap-2">
+                  <History className="w-4 h-4" />
+                  <span className="text-[10px] sm:text-sm">历史记录</span>
                 </Link>
               </Button>
               {/* GitHub 链接 */}
