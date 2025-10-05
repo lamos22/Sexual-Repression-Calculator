@@ -271,6 +271,10 @@ export function QuestionnaireList({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [currentPage, type]);
+
   // 自动保存功能 - 使用debounced保存避免频繁操作
   useEffect(() => {
     if (responses.length > 0) {
