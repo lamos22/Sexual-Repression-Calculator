@@ -359,7 +359,7 @@ export default function Results() {
               {Math.round(sri.totalScore)}
             </div>
             <Badge 
-              className={`text-lg px-6 py-2 ${getLevelColorClass(sri.level)}`}
+              className={`text-lg flex justify-center px-6 py-2 ${getLevelColorClass(sri.level)}`}
               variant="outline"
             >
               {levelInfo.label}
