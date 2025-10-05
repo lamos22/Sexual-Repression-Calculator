@@ -3,17 +3,47 @@
  * 提供评估历史浏览、结果对比、数据导出等功能
  */
 
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Separator } from '@/components/ui/separator';
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
-import { Clock, Download, Trash2, Eye, Home, BarChart3, Calendar, TrendingUp, Users, FileText, RefreshCw, AlertCircle } from 'lucide-react';
-import { AssessmentSession, SRI_LEVELS } from '@/types';
-import { getAllAssessmentSessions, deleteAssessmentSession, clearAllSessions, downloadAsJSON, downloadAsCSV, exportAllSessionsData } from '@/lib/storage';
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Badge} from '@/components/ui/badge';
+import {Progress} from '@/components/ui/progress';
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger
+} from '@/components/ui/alert-dialog';
+import {
+    AlertCircle,
+    BarChart3,
+    Calendar,
+    Clock,
+    Download,
+    Eye,
+    FileText,
+    Home,
+    RefreshCw,
+    Trash2,
+    TrendingUp,
+    Users
+} from 'lucide-react';
+import {AssessmentSession, SRI_LEVELS} from '@/types';
+import {
+    clearAllSessions,
+    deleteAssessmentSession,
+    downloadAsCSV,
+    downloadAsJSON,
+    exportAllSessionsData,
+    getAllAssessmentSessions
+} from '@/lib/storage';
+import {formatDemographicsForDisplay} from '@/lib/demographics-utils';
 
 export default function History() {
   const [sessions, setSessions] = useState<AssessmentSession[]>([]);
@@ -270,6 +300,9 @@ export default function History() {
                   ? Math.round((session.endTime.getTime() - session.startTime.getTime()) / 60000) 
                   : null;
                 
+                // 格式化人口学信息为可读文字
+                const formattedDemographics = formatDemographicsForDisplay(session.demographics);
+                
                 return (
                   <Card key={session.id} className="hover:shadow-lg transition-shadow">
                     <CardContent className="p-6">
@@ -316,9 +349,9 @@ export default function History() {
                           </div>
                           
                           <div className="text-sm text-muted-foreground space-y-1">
-                            <p>年龄：{session.demographics.age}</p>
-                            <p>性别：{session.demographics.gender}</p>
-                            <p>关系状态：{session.demographics.relationshipStatus}</p>
+                            <p>年龄：{formattedDemographics.age}</p>
+                            <p>性别：{formattedDemographics.gender}</p>
+                            <p>关系状态：{formattedDemographics.relationshipStatus}</p>
                           </div>
                         </div>
                         
