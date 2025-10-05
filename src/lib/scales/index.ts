@@ -1162,7 +1162,7 @@ export const DEMOGRAPHICS_QUESTIONS = [
   },
   {
     id: 'gender',
-    text: '您的性别认同',
+    text: '您的性别认同(对自己)',
     type: 'multiple',
     options: [
       { value: 1, label: '男性' },
