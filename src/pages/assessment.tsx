@@ -184,61 +184,117 @@ export default function Assessment() {
   }, [currentStep]);
 
   useEffect(() => {
-    if (progressRestored || !session) {
+    if (hasCheckedProgress) {
       return;
     }
 
     const savedProgress = localStorage.getItem('sri_assessment_progress');
     if (!savedProgress) {
-      setProgressRestored(true);
+      setHasCheckedProgress(true);
       return;
     }
 
     try {
       const data = JSON.parse(savedProgress);
       if (data.type !== assessmentType) {
-        setProgressRestored(true);
+        setHasCheckedProgress(true);
         return;
       }
 
       const savedDemographics = data.demographics as Demographics | undefined;
-      const savedResponsesRaw = Array.isArray(data.responses) ? data.responses : [];
-      const restoredResponses: Response[] = savedResponsesRaw.map((item: Response) => ({
-        ...item,
+      type RawResponse = { questionId: string; value: number; timestamp: string };
+      const rawResponses: RawResponse[] = Array.isArray(data.responses) ? data.responses : [];
+      const restoredResponses: Response[] = rawResponses.map((item) => ({
+        questionId: item.questionId,
+        value: item.value,
         timestamp: new Date(item.timestamp),
       }));
 
-      if (savedDemographics) {
-        setDemographics(savedDemographics);
+      if (!savedDemographics && restoredResponses.length === 0) {
+        setHasCheckedProgress(true);
+        return;
       }
 
-      if (restoredResponses.length > 0) {
-        setResponses(restoredResponses);
-
-        const updatedSession: AssessmentSession = {
-          ...session,
-          demographics: savedDemographics || session.demographics,
-          responses: restoredResponses
-        };
-
-        setSession(updatedSession);
-        saveAssessmentSession(updatedSession);
-        setCurrentStep('questionnaire');
-      } else if (savedDemographics) {
-        const updatedSession: AssessmentSession = {
-          ...session,
-          demographics: savedDemographics
-        };
-        setSession(updatedSession);
-        saveAssessmentSession(updatedSession);
-      }
+      setPendingProgress({
+        demographics: savedDemographics,
+        responses: restoredResponses,
+      });
+      setShowProgressDialog(true);
+      setHasCheckedProgress(true);
     } catch (error) {
-      console.error('恢复进度失败:', error);
-    } finally {
-      setProgressRestored(true);
+      console.error('检查保存的进度时出错:', error);
+      setHasCheckedProgress(true);
     }
-  }, [assessmentType, session, progressRestored]);
-  
+  }, [assessmentType, hasCheckedProgress]);
+
+  const handleContinueProgress = () => {
+    if (!pendingProgress) {
+      setShowProgressDialog(false);
+      return;
+    }
+
+    const baseSession: AssessmentSession = session ?? {
+      id: sessionId,
+      type: assessmentType,
+      demographics: pendingProgress.demographics ?? ({} as Demographics),
+      responses: [],
+      startTime: new Date(),
+      completed: false,
+    };
+
+    if (pendingProgress.demographics) {
+      setDemographics(pendingProgress.demographics);
+    }
+  setResponses(pendingProgress.responses);
+
+    const updatedSession: AssessmentSession = {
+      ...baseSession,
+      demographics: pendingProgress.demographics ?? baseSession.demographics,
+      responses: pendingProgress.responses,
+      completed: false,
+      endTime: undefined,
+    };
+
+    setSession(updatedSession);
+    saveAssessmentSession(updatedSession);
+
+    setCurrentStep('questionnaire');
+    setPendingProgress(null);
+    setShowProgressDialog(false);
+    setResumeToken(Date.now());
+    setHasCheckedProgress(true);
+  };
+
+  const handleDiscardProgress = () => {
+    localStorage.removeItem('sri_assessment_progress');
+    setPendingProgress(null);
+    setShowProgressDialog(false);
+    setHasCheckedProgress(true);
+    setDemographics(null);
+    setResponses([]);
+    setCurrentStep('consent');
+    setResumeToken(null);
+
+    if (session) {
+      setSession({
+        ...session,
+        demographics: {} as Demographics,
+        responses: [],
+        startTime: new Date(),
+        completed: false,
+        endTime: undefined,
+      });
+    }
+  };
+
+  const handleProgressDialogOpenChange = (open: boolean) => {
+    if (!open && pendingProgress) {
+      setShowProgressDialog(true);
+      return;
+    }
+    setShowProgressDialog(open);
+  };
+
   // 初始化会话
   useEffect(() => {
     const newSession: AssessmentSession = {
