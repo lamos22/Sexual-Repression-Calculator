@@ -95,7 +95,7 @@ export default function Assessment() {
     }
   }, [assessmentType, hasCheckedProgress]);
 
-  const handleContinueProgress = () => {
+const handleContinueProgress = () => {
     if (!pendingProgress) {
       closingProgressDialogRef.current = false;
       setShowProgressDialog(false);
@@ -138,46 +138,7 @@ export default function Assessment() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleDiscardProgress = () => {
-    closingProgressDialogRef.current = true;
-    localStorage.removeItem('sri_assessment_progress');
-    setPendingProgress(null);
-    setShowProgressDialog(false);
-    setHasCheckedProgress(true);
-    setDemographics(null);
-    setResponses([]);
-    setCurrentStep('consent');
-    setResumeToken(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    if (session) {
-      setSession({
-        ...session,
-        demographics: {} as Demographics,
-        responses: [],
-        startTime: new Date(),
-        completed: false,
-        endTime: undefined,
-      });
-    }
-  };
-
-  const handleProgressDialogOpenChange = (open: boolean) => {
-    if (!open) {
-      if (closingProgressDialogRef.current) {
-        closingProgressDialogRef.current = false;
-        setShowProgressDialog(false);
-        return;
-      }
-
-      if (pendingProgress) {
-        setShowProgressDialog(true);
-        return;
-      }
-    }
-
-    setShowProgressDialog(open);
-  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -227,45 +188,9 @@ export default function Assessment() {
     }
   }, [assessmentType, hasCheckedProgress]);
 
-  const handleContinueProgress = () => {
-    if (!pendingProgress) {
-      setShowProgressDialog(false);
-      return;
-    }
 
-    const baseSession: AssessmentSession = session ?? {
-      id: sessionId,
-      type: assessmentType,
-      demographics: pendingProgress.demographics ?? ({} as Demographics),
-      responses: [],
-      startTime: new Date(),
-      completed: false,
-    };
-
-    if (pendingProgress.demographics) {
-      setDemographics(pendingProgress.demographics);
-    }
-  setResponses(pendingProgress.responses);
-
-    const updatedSession: AssessmentSession = {
-      ...baseSession,
-      demographics: pendingProgress.demographics ?? baseSession.demographics,
-      responses: pendingProgress.responses,
-      completed: false,
-      endTime: undefined,
-    };
-
-    setSession(updatedSession);
-    saveAssessmentSession(updatedSession);
-
-    setCurrentStep('questionnaire');
-    setPendingProgress(null);
-    setShowProgressDialog(false);
-    setResumeToken(Date.now());
-    setHasCheckedProgress(true);
-  };
-
-  const handleDiscardProgress = () => {
+const handleDiscardProgress = () => {
+    closingProgressDialogRef.current = true;
     localStorage.removeItem('sri_assessment_progress');
     setPendingProgress(null);
     setShowProgressDialog(false);
@@ -274,6 +199,7 @@ export default function Assessment() {
     setResponses([]);
     setCurrentStep('consent');
     setResumeToken(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     if (session) {
       setSession({
@@ -287,11 +213,20 @@ export default function Assessment() {
     }
   };
 
-  const handleProgressDialogOpenChange = (open: boolean) => {
-    if (!open && pendingProgress) {
-      setShowProgressDialog(true);
-      return;
+const handleProgressDialogOpenChange = (open: boolean) => {
+    if (!open) {
+      if (closingProgressDialogRef.current) {
+        closingProgressDialogRef.current = false;
+        setShowProgressDialog(false);
+        return;
+      }
+
+      if (pendingProgress) {
+        setShowProgressDialog(true);
+        return;
+      }
     }
+
     setShowProgressDialog(open);
   };
 
