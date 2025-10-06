@@ -16,9 +16,10 @@ app.use(
             }
             return "/";
         },
-    }),
+    })
 );
 
 setupRoutes(app);
 
-export default app; // ✅ 用于 Vercel Edge Function
+// ✅ 直接导出 fetch handler
+export default app.fetch;
