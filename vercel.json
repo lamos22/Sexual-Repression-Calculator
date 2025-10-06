@@ -9,14 +9,14 @@
             }
         },
         {
-            "src": "server/**/*.ts",
-            "use": "@vercel/deno-edge"
+            "src": "dist/server.cjs",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/api/(.*)",
-            "dest": "/server/$1.ts"
+            "dest": "/dist/server.cjs"
         },
         {
             "src": "/(.*)",
