@@ -25,6 +25,8 @@ import {
   Target,
   History
 } from 'lucide-react';
+import { Menu } from 'lucide-react'; // 添加菜单图标
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export default function Home() {
   return (
@@ -51,7 +53,52 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex items-center gap-1 sm:gap-4">
+          {/* 移动端菜单 - 只在小屏幕上显示 */}
+<div className="md:hidden">
+  <Sheet>
+    <SheetTrigger asChild>
+      <Button variant="ghost" size="sm">
+        <Menu className="w-5 h-5" />
+      </Button>
+    </SheetTrigger>
+    <SheetContent side="right">
+      <div className="flex flex-col gap-4 mt-4">
+        <Button variant="ghost" size="sm" asChild className="justify-start">
+          <Link to="/guide" className="flex items-center gap-2">
+            <BookOpen className="w-4 h-4" />
+            使用指南
+          </Link>
+        </Button>
+        <Button variant="ghost" size="sm" asChild className="justify-start">
+          <Link to="/science" className="flex items-center gap-2">
+            <FileText className="w-4 h-4" />
+            科学依据
+          </Link>
+        </Button>
+        <Button variant="ghost" size="sm" asChild className="justify-start">
+          <Link to="/history" className="flex items-center gap-2">
+            <History className="w-4 h-4" />
+            历史记录
+          </Link>
+        </Button>
+        <Button variant="ghost" size="sm" asChild className="justify-start">
+          <a 
+            href="https://github.com/banlanzs/Sexual-Repression-Calculator" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+          >
+            <Github className="w-4 h-4" />
+            GitHub仓库地址
+          </a>
+        </Button>
+      </div>
+    </SheetContent>
+  </Sheet>
+</div>
+            {/* 桌面端菜单 */}
+            {/* <div className="flex items-center gap-1 sm:gap-4"> */}
+            <div className="hidden md:flex items-center gap-4">
               <Button variant="ghost" size="sm" asChild className="h-auto py-1.5">
                 <Link to="/guide" className="flex flex-col sm:flex-row items-center gap-0.5 sm:gap-2">
                   <BookOpen className="w-4 h-4" />
