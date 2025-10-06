@@ -21,5 +21,4 @@ app.use(
 
 setupRoutes(app);
 
-// 不再调用 Deno.serve，Vercel 会自动处理
-export default app;
+export default app; // ✅ 用于 Vercel Edge Function

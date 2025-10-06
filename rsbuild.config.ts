@@ -1,7 +1,7 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { resolve } from "path";
-import { app } from "./src/server/app.dev";
+import { app } from "./src/server/app.prod";
 import { getRequestListener } from "@hono/node-server";
 
 export default defineConfig({
@@ -28,6 +28,7 @@ export default defineConfig({
         setupMiddlewares: [
             (middlewares) => {
                 middlewares.unshift((req, res, next) => {
+                    // 本地开发时处理 /api 路径
                     if (req.url?.startsWith("/api")) {
                         const listener = getRequestListener(app.fetch);
                         listener(req, res);
