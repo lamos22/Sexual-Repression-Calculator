@@ -95,7 +95,7 @@ export default function Assessment() {
     }
   }, [assessmentType, hasCheckedProgress]);
 
-const handleContinueProgress = () => {
+  const handleContinueProgress = () => {
     if (!pendingProgress) {
       closingProgressDialogRef.current = false;
       setShowProgressDialog(false);
@@ -138,58 +138,7 @@ const handleContinueProgress = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  }, [currentStep]);
-
-  useEffect(() => {
-    if (hasCheckedProgress) {
-      return;
-    }
-
-    const savedProgress = localStorage.getItem('sri_assessment_progress');
-    if (!savedProgress) {
-      setHasCheckedProgress(true);
-      return;
-    }
-
-    try {
-      const data = JSON.parse(savedProgress);
-      if (data.type !== assessmentType) {
-        setHasCheckedProgress(true);
-        return;
-      }
-
-      const savedDemographics = data.demographics as Demographics | undefined;
-      type RawResponse = { questionId: string; value: number; timestamp: string };
-      const rawResponses: RawResponse[] = Array.isArray(data.responses) ? data.responses : [];
-      const restoredResponses: Response[] = rawResponses.map((item) => ({
-        questionId: item.questionId,
-        value: item.value,
-        timestamp: new Date(item.timestamp),
-      }));
-
-      if (!savedDemographics && restoredResponses.length === 0) {
-        setHasCheckedProgress(true);
-        return;
-      }
-
-      setPendingProgress({
-        demographics: savedDemographics,
-        responses: restoredResponses,
-      });
-      setShowProgressDialog(true);
-      setHasCheckedProgress(true);
-    } catch (error) {
-      console.error('检查保存的进度时出错:', error);
-      setHasCheckedProgress(true);
-    }
-  }, [assessmentType, hasCheckedProgress]);
-
-
-const handleDiscardProgress = () => {
+  const handleDiscardProgress = () => {
     closingProgressDialogRef.current = true;
     localStorage.removeItem('sri_assessment_progress');
     setPendingProgress(null);
@@ -213,7 +162,7 @@ const handleDiscardProgress = () => {
     }
   };
 
-const handleProgressDialogOpenChange = (open: boolean) => {
+  const handleProgressDialogOpenChange = (open: boolean) => {
     if (!open) {
       if (closingProgressDialogRef.current) {
         closingProgressDialogRef.current = false;

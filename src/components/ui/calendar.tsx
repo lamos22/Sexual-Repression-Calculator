@@ -63,5 +63,6 @@ function Calendar({
     />
   )
 }
+Calendar.displayName = "Calendar"
 
-export type CalendarProps = {};
+export { Calendar }
