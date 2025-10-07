@@ -5,6 +5,8 @@
             "runtime": "vercel-deno@3.1.0"
         }
     },
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist/web",
     "routes": [
         {
             "src": "/api/(.*)",
@@ -12,7 +14,14 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/index.html"
+            "dest": "/dist/web/$1"
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/.*",
+            "dest": "/dist/web/index.html"
         }
     ],
     "env": {

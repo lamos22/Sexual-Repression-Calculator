@@ -1,6 +1,5 @@
 #!/usr/bin/env DENO_DIR=/tmp deno run --allow-net --allow-env --allow-read
 
-// 改用 esm.sh CDN 导入
 import { Hono } from 'https://esm.sh/hono@4.4.3'
 import { cors } from 'https://esm.sh/hono@4.4.3/cors'
 import { z } from 'https://esm.sh/zod@3.23.8'
