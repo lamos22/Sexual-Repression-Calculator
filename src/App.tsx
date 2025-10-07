@@ -10,6 +10,7 @@ import Guide from "./pages/guide";
 import Science from "./pages/science";
 import History from "./pages/history";
 import NotFound from "./pages/404";
+import BackToTopButton from "@/components/BackToTopButton"; 
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,8 @@ const App: React.FC = () => (
           <Route path="/history" element={<History />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        {/* ✅ 固定在右上角的返回顶部按钮 */}
+        <BackToTopButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

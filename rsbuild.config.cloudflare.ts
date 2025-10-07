@@ -1,17 +1,20 @@
 import { defineConfig } from "@rsbuild/core";
+import { pluginReact } from "@rsbuild/plugin-react";
 import { resolve } from "path";
 
 export default defineConfig({
+  plugins: [pluginReact()],
+  html: {
+    template: "./index.html",
+  },
   source: {
     entry: {
-      server: "./src/server/app.prod.ts",
+      index: "./src/main.tsx",
     },
   },
   output: {
-    target: "node",
-    cleanDistPath: false,
-    filename: {
-      js: "[name].cjs",
+    distPath: {
+      root: "dist",
     },
     legalComments: "none",
   },
