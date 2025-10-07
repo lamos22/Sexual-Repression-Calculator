@@ -5,6 +5,12 @@
             "runtime": "vercel-deno@3.1.0"
         }
     },
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build"
+        }
+    ],
     "routes": [
         {
             "src": "/api/(.*)",
