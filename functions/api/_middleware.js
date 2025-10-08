@@ -6,13 +6,9 @@ export async function onRequest(context) {
   console.log("ABUSE_REDIRECT_ENABLED environment variable:", context.env.ABUSE_REDIRECT_ENABLED);
   console.log("isRedirect value:", isRedirect);
 
-  // 只有在开启跳转功能且访问的是首页时才跳转
-  const url = new URL(context.request.url);
-  const isHomePage = url.pathname === "/" || url.pathname === "/index.html";
-  console.log("Is home page request:", isHomePage);
-  
-  if (isRedirect && isHomePage) {
-    console.log("Redirect condition met, serving redirect.html");
+  // 如果开启了跳转功能，则对所有API请求也跳转
+  if (isRedirect) {
+    console.log("Redirect enabled for API requests, serving redirect.html");
     // 返回 redirect.html
     return context.env.ASSETS.fetch(new URL("/redirect.html", context.request.url));
   }
