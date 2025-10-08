@@ -14,18 +14,27 @@
     <script>
     (async () => {
       try {
+        console.log("开始检查防滥用弹窗条件");
+        
         // 检查是否设置了"不再显示"的cookie
         const hidePopup = document.cookie.split(';').find(cookie => cookie.trim().startsWith('hideAbusePopup=true'));
+        console.log("检查是否设置'不再显示'cookie:", hidePopup);
         
         if (hidePopup) {
+          console.log("用户已选择不再显示弹窗，跳过显示");
           return; // 如果设置了cookie，则不显示弹窗
         }
 
         // 调用 Cloudflare Functions 提供的接口来获取环境变量
+        console.log("正在获取环境变量...");
         const res = await fetch("/api/env");
-        const { showAbusePopup } = await res.json();
+        const envData = await res.json();
+        console.log("获取到的环境变量:", envData);
+        
+        const { showAbusePopup } = envData;
 
         if (showAbusePopup === "true") {
+          console.log("显示防滥用弹窗");
           const popup = document.createElement("div");
           popup.innerHTML = `
             <div id="abuse-popup"
@@ -89,17 +98,21 @@
 
           // 处理"我已知晓"按钮点击事件
           document.getElementById("close-abuse-popup").addEventListener("click", () => {
+            console.log("用户点击'我已知晓'按钮");
             document.getElementById("abuse-popup").remove();
           });
 
           // 处理"不再显示"按钮点击事件
           document.getElementById("hide-abuse-popup").addEventListener("click", () => {
+            console.log("用户点击'不再显示'按钮");
             // 设置cookie，有效期为30天
             const expiryDate = new Date();
             expiryDate.setTime(expiryDate.getTime() + (30 * 24 * 60 * 60 * 1000));
             document.cookie = "hideAbusePopup=true; expires=" + expiryDate.toUTCString() + "; path=/";
             document.getElementById("abuse-popup").remove();
           });
+        } else {
+          console.log("防滥用弹窗未启用，showAbusePopup值:", showAbusePopup);
         }
       } catch (err) {
         console.error("弹窗加载失败", err);

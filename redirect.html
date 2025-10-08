@@ -35,6 +35,15 @@
       font-weight: bold;
       color: #ff6b6b;
     }
+    .debug-info {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      text-align: left;
+      white-space: pre-wrap;
+    }
   </style>
 </head>
 <body>
@@ -44,9 +53,19 @@
     <p>本项目为<strong>完全开源免费</strong>的项目，请勿付费购买！</p>
     <p>将在 <span id="countdown" class="countdown">5</span> 秒后自动跳转到原始项目地址...</p>
     <button onclick="window.location.href='https://github.com/banlanzs/Sexual-Repression-Calculator'">立即跳转到GitHub项目</button>
+    
+    <div class="debug-info" id="debug-info">
+      调试信息将在这里显示...
+    </div>
   </div>
 
   <script>
+    // 添加调试信息
+    const debugInfo = document.getElementById('debug-info');
+    debugInfo.textContent = `当前时间: ${new Date().toISOString()}\n`;
+    debugInfo.textContent += `用户代理: ${navigator.userAgent}\n`;
+    debugInfo.textContent += `页面URL: ${window.location.href}\n`;
+    
     let count = 5;
     const el = document.getElementById('countdown');
     const timer = setInterval(() => {
@@ -54,6 +73,7 @@
       el.textContent = count;
       if (count <= 0) {
         clearInterval(timer);
+        debugInfo.textContent += `\n正在跳转到: https://github.com/banlanzs/Sexual-Repression-Calculator`;
         window.location.href = 'https://github.com/banlanzs/Sexual-Repression-Calculator';
       }
     }, 1000);
