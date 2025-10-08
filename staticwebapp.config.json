@@ -3,6 +3,10 @@
     {
       "route": "/api/*",
       "allowedRoles": ["anonymous"]
+    },
+    {
+      "route": "/middleware.js",
+      "allowedRoles": ["anonymous"]
     }
   ],
   "responseOverrides": {
