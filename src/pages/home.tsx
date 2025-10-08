@@ -120,7 +120,7 @@ export default function Home() {
               {/* GitHub 链接 */}
   <Button variant="ghost" size="sm" asChild>
     <a 
-      href="https://github.com/lamos22/Sexual-Repression-Calculator" 
+      href="https://github.com/banlanzs/Sexual-Repression-Calculator" 
       target="_blank" 
       rel="noopener noreferrer"
       className="flex items-center"
