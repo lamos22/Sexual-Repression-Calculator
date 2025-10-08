@@ -17,6 +17,9 @@ export default defineConfig({
       root: "dist",
     },
     legalComments: "none",
+    copy: [
+      { from: "./redirect.html", to: "redirect.html" },  // 确保 redirect.html 被复制到输出目录
+    ],
   },
   resolve: {
     alias: {

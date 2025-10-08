@@ -7,57 +7,56 @@
     <title>性压抑指数计算器 - Sexual Repression Index Calculator</title>
   </head>
 
-  <!-- IMPORTANT: do not modify the code in the <body/> tag. -->
   <body>
     <div id="root"></div>
+    
+    <!-- 防滥用弹窗 -->
+    <script>
+    (async () => {
+      try {
+        // 调用 Cloudflare Functions 提供的接口来获取环境变量
+        const res = await fetch("/api/env");
+        const { showAbusePopup } = await res.json();
+
+        if (showAbusePopup === "true") {
+          const popup = document.createElement("div");
+          popup.innerHTML = `
+            <div id="abuse-popup"
+              style="
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.5);
+                display: flex; justify-content: center; align-items: center;
+                z-index: 9999;
+              ">
+              <div style="
+                background: white;
+                padding: 1.5rem;
+                border-radius: 8px;
+                max-width: 400px;
+                text-align: center;
+                box-shadow: 0 0 15px rgba(0,0,0,0.2);
+              ">
+                <h2>📢 项目声明</h2>
+                <p>本项目为 <b>免费开源项目</b>，请勿付费购买！</p>
+                <p>原项目地址：
+                  <a href="https://github.com/banlanzs/Sexual-Repression-Calculator" target="_blank">点击这里</a>
+                </p>
+                <p>如果你是花钱买到的链接，请及时退款/举报⚠️</p>
+                <button id="close-abuse-popup" style="margin-top: 1rem; padding: 0.5rem 1rem;">我已知晓</button>
+              </div>
+            </div>
+          `;
+          document.body.appendChild(popup);
+
+          document.getElementById("close-abuse-popup").addEventListener("click", () => {
+            document.getElementById("abuse-popup").remove();
+          });
+        }
+      } catch (err) {
+        console.error("弹窗加载失败", err);
+      }
+    })();
+    </script>
   </body>
 </html>
-
-<!-- 在你的 index.html 底部加上 -->
-<script>
-(async () => {
-  try {
-    // 调用 Cloudflare Functions 提供的接口来获取环境变量
-    const res = await fetch("/__env");
-    const { showAbusePopup } = await res.json();
-
-    if (showAbusePopup === "true") {
-      const popup = document.createElement("div");
-      popup.innerHTML = `
-        <div id="abuse-popup"
-          style="
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 9999;
-          ">
-          <div style="
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-          ">
-            <h2>📢 项目声明</h2>
-            <p>本项目为 <b>免费开源项目</b>，请勿付费购买！</p>
-            <p>原项目地址：
-              <a href="https://github.com/你的仓库" target="_blank">点击这里</a>
-            </p>
-            <p>如果你是花钱买到的链接，请及时退款/举报⚠️</p>
-            <button id="close-abuse-popup" style="margin-top: 1rem; padding: 0.5rem 1rem;">我已知晓</button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(popup);
-
-      document.getElementById("close-abuse-popup").addEventListener("click", () => {
-        document.getElementById("abuse-popup").remove();
-      });
-    }
-  } catch (err) {
-    console.error("弹窗加载失败", err);
-  }
-})();
-</script>

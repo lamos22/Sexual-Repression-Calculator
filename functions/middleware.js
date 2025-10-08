@@ -16,8 +16,9 @@ export async function onRequest(context) {
   // 从环境变量读取是否开启跳转功能
   const isRedirect = context.env.ABUSE_REDIRECT_ENABLED === "true";
 
-  if (isRedirect) {
-    // 如果开关开启，则所有请求都返回 redirect.html
+  // 只有在开启跳转功能且访问的是首页时才跳转
+  if (isRedirect && (context.request.url.endsWith("/") || context.request.url.includes("/index.html"))) {
+    // 返回 redirect.html
     return context.env.ASSETS.fetch(new URL("/redirect.html", context.request.url));
   }
 

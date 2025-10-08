@@ -7,7 +7,10 @@
 - **输出目录**: `dist`
 
 ### 环境变量
-此应用不需要环境变量，所有数据都在客户端处理。
+此应用支持通过环境变量控制防滥用功能：
+
+- **ABUSE_REDIRECT_ENABLED**: 设置为 `true` 可开启防滥用跳转页面
+- **SHOW_ABUSE_POPUP**: 设置为 `true` 可开启防滥用提醒弹窗
 
 ## 部署步骤
 
@@ -17,7 +20,10 @@
 4. 配置构建设置：
    - 构建命令: `npm run cf:deploy`
    - 输出目录: `dist`
-5. 点击部署
+5. (可选) 在 Cloudflare Dashboard 的项目设置中添加环境变量：
+   - `ABUSE_REDIRECT_ENABLED` = `true` (开启防滥用跳转)
+   - `SHOW_ABUSE_POPUP` = `true` (开启防滥用弹窗)
+6. 点击部署
 
 ## 注意事项
 

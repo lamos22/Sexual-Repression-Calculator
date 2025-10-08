@@ -25,7 +25,7 @@
 
 ### 安装和运行
 
-```bash
+```
 # 克隆项目
 git clone [project-url]
 cd Sexual-Repression-Calculator
@@ -45,7 +45,7 @@ npm start
 
 ### 使用 Docker 运行
 
-```bash
+```
 docker run -p 8000:8000 appe233/sexual-repression-calculator
 ```
 
@@ -72,6 +72,25 @@ docker run -p 8000:8000 appe233/sexual-repression-calculator
    - 构建命令: `npm run cf:deploy`
    - 输出目录: `dist`
 5. 点击部署
+
+### 防滥用功能
+
+为了防止项目被恶意倒卖，本项目提供了两种防滥用机制：
+
+1. **跳转页面机制**（推荐用于完全阻止访问）：
+   - 在 Cloudflare Pages 项目设置中添加环境变量：
+     - `ABUSE_REDIRECT_ENABLED` = `true`
+   - 当该环境变量设置为 `true` 时，所有访问都会跳转到防滥用说明页面
+   - 该页面会倒计时5秒后自动跳转到 GitHub 原始项目地址
+   - 用户也可以手动点击按钮立即跳转
+
+2. **弹窗提醒机制**（用于提醒用户）：
+   - 在 Cloudflare Pages 项目设置中添加环境变量：
+     - `SHOW_ABUSE_POPUP` = `true`
+   - 当该环境变量设置为 `true` 时，用户访问网站时会看到防滥用提醒弹窗
+   - 用户关闭弹窗后可以正常使用网站
+
+你可以根据需要选择其中一种或两种机制同时使用。
 
 ### 注意事项
 
@@ -208,7 +227,7 @@ src/
 
 ### 测试
 
-```bash
+```
 # 类型检查
 npm run type-check
 
