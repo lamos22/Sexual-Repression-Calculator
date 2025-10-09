@@ -1,8 +1,22 @@
 {
-  "buildCommand": "npm run build:client",
-  "outputDirectory": "dist/web",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
+    "buildCommand": "npm run build:client",
+    "outputDirectory": "dist/web",
+    "functions": {
+        "api/index.ts": {
+            "runtime": "vercel-deno@3.1.0"
+        }
+    },
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "/api/index.ts"
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
+        }
+    ]
 }
