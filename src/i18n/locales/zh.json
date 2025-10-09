@@ -1,0 +1,542 @@
+{
+  "app": {
+    "title": "性压抑指数计算器",
+    "description": "基于科学研究的专业性心理健康评估工具"
+  },
+  "navigation": {
+    "home": "首页",
+    "assessment": "评估",
+    "results": "结果",
+    "history": "历史记录",
+    "science": "科学依据",
+    "guide": "使用指南"
+  },
+  "home": {
+    "welcome": "欢迎使用性压抑指数计算器",
+    "subtitle": "一个基于多个经过验证的心理测量量表的专业评估工具",
+    "features": {
+      "scientific": "科学可靠: 基于SIS/SES、Mosher性内疚、KISS-9、SOS等国际认可量表"
+    },
+    "adaptiveAssessment": {
+      "title": "智能适应性评估",
+      "description": "系统会根据您的年龄段和个人背景自动选择最适合的量表组合，为14-17岁青少年提供专门的保护机制，为无性经验用户提供文化敏感的评估内容，确保每个人都能获得准确和适宜的评估体验。"
+    },
+    "quickStart": "开始快速测评",
+    "fullVersion": "完整版测评",
+    "begin": "开始评估",
+    "metrics": {
+      "time": "分钟快测",
+      "dimensions": "核心维度",
+      "privacy": "隐私保护",
+      "scientific": "科学",
+      "verified": "研究验证"
+    },
+    "versionSelection": {
+      "title": "选择适合您的测评版本",
+      "description": "我们提供两种测评版本，您可以根据可用时间和详细程度需求选择",
+      "recommended": "推荐",
+      "time": "预计用时",
+      "questions": "题目数量",
+      "minutes": "分钟",
+      "questionsUnit": "题",
+      "quick": {
+        "title": "快速测评版",
+        "subtitle": "适合初次使用和快速了解",
+        "features": {
+          "1": "SIS/SES-SF 14项量表",
+          "2": "Mosher性内疚10项简版",
+          "3": "KISS-9性羞耻量表",
+          "4": "SOS性观感筛查版"
+        }
+      },
+      "full": {
+        "title": "完整测评版",
+        "subtitle": "更全面深入的专业分析",
+        "features": {
+          "1": "完整版SIS/SES量表",
+          "2": "完整Mosher性内疚量表",
+          "3": "KISS-9 + 额外维度分析",
+          "4": "BSAS性态度量表校标"
+        },
+        "start": "开始完整测评"
+      }
+    },
+    "scientificBasis": {
+      "title": "科学可靠的评估基础",
+      "description": "基于国际认可的心理测量学量表，经过严格验证的科学工具",
+      "scales": {
+        "sis": {
+          "title": "双控制模型",
+          "description": "基于Janssen等人的SIS/SES双控制模型，测量性抑制和性兴奋系统"
+        },
+        "guilt": {
+          "title": "性内疚测量",
+          "description": "采用Mosher性内疚量表，评估性相关的内疚感和道德负担"
+        },
+        "shame": {
+          "title": "性羞耻评估",
+          "description": "使用KISS-9量表测量性相关的羞耻体验和自我接纳"
+        },
+        "sos": {
+          "title": "性观感调查",
+          "description": "SOS量表评估对性刺激的情绪取向和接近回避倾向"
+        }
+      }
+    },
+    "privacy": {
+      "title": "您的隐私是我们的首要关注",
+      "description": "所有评估数据仅在您的设备本地处理和存储，不会上传到任何服务器。您拥有完全的数据控制权，可以随时删除或导出您的评估历史。",
+      "benefits": {
+        "1": "本地数据存储",
+        "2": "完全匿名化",
+        "3": "可随时删除"
+      }
+    },
+    "cta": {
+      "title": "准备好开始您的性心理健康之旅了吗？",
+      "description": "通过科学的自我评估，更好地了解自己，促进健康的性心理发展和亲密关系。",
+      "start": "立即开始测评",
+      "learnMore": "了解更多信息"
+    },
+    "footer": {
+      "description": "基于科学研究的性压抑指数计算器，帮助您更好地了解自己的性心理健康。",
+      "tools": {
+        "title": "评估工具",
+        "quick": "快速测评",
+        "full": "完整测评",
+        "history": "历史记录"
+      },
+      "resources": {
+        "title": "资源",
+        "guide": "使用指南",
+        "science": "科学依据",
+        "privacy": "隐私政策"
+      },
+      "support": {
+        "title": "支持",
+        "faq": "常见问题",
+        "consultation": "专业咨询",
+        "crisis": "危机资源"
+      },
+      "copyright": "仅供教育和自我了解使用，不能替代专业心理健康服务。"
+    },
+    "nonProfitModal": {
+      "title": "重要声明",
+      "description": "本项目开源免费，旨在提供教育和自我了解的性心理健康评估工具。",
+      "warning": "如您花钱买到的链接，请及时退款/举报⚠️",
+      "benefit1": "所有服务完全免费提供",
+      "benefit2": "不接受任何形式的商业赞助",
+      "benefit3": "数据仅用于个人教育目的",
+      "footer": "本网站仅作为心理健康教育的辅助工具，所有评估结果仅供参考，不能替代专业的心理健康诊断和治疗。",
+      "confirm": "我已理解并同意继续使用"
+    }
+  },
+  "assessment": {
+    "type": {
+      "quick": "快速测评",
+      "full": "完整测评"
+    },
+    "progressDialog": {
+      "title": "检测到未完成的评估",
+      "description": "检测到本地保存的未完成评估，已回答 {{count}} 道题。请选择继续作答或重新开始。",
+      "restart": "重新开始",
+      "continue": "继续作答"
+    },
+    "progress": {
+      "overall": "整体进度"
+    },
+    "processing": {
+      "title": "正在分析您的回答",
+      "description": "我们正在使用科学算法计算您的性压抑指数，请稍候...",
+      "step1": "应用多维度标准化算法",
+      "step2": "生成个性化分析报告",
+      "step3": "保护您的隐私数据"
+    },
+    "consent": {
+      "title": "知情同意书",
+      "description": "在开始评估之前，请仔细阅读以下内容",
+      "consentText": "我理解这是一个用于自我了解的心理测量工具，结果仅供参考，不能替代专业心理健康服务。我同意自愿参与本次评估，并理解我的所有数据将仅存储在本地浏览器中，不会上传到任何服务器。",
+      "agree": "我同意",
+      "disagree": "我不同意"
+    },
+    "demographics": {
+      "title": "人口学信息",
+      "age": "年龄",
+      "gender": {
+        "label": "性别",
+        "male": "男",
+        "female": "女",
+        "other": "其他",
+        "preferNotToSay": "不愿透露"
+      },
+      "education": {
+        "label": "教育程度",
+        "primary": "小学及以下",
+        "secondary": "中学",
+        "bachelor": "本科",
+        "master": "硕士及以上"
+      },
+      "relationship": {
+        "label": "感情状况",
+        "single": "单身",
+        "inRelationship": "恋爱中",
+        "married": "已婚",
+        "divorced": "离异",
+        "widowed": "丧偶"
+      },
+      "next": "下一步"
+    }
+  },
+  "results": {
+    "title": "评估结果",
+    "sriIndex": "SRI指数",
+    "scoreExplanation": "您的SRI指数为 {{score}}，处于 {{level}} 水平",
+    "scoreRange": {
+      "low": "较少压抑",
+      "medium": "中等",
+      "high": "较多压抑"
+    },
+    "level": {
+      "verylow": "很低",
+      "low": "偏低",
+      "moderate": "中等",
+      "high": "偏高",
+      "veryhigh": "很高"
+    },
+    "export": "导出结果",
+    "restart": "重新评估",
+    "loading": {
+      "title": "加载结果中",
+      "description": "正在获取您的评估结果..."
+    },
+    "error": {
+      "title": "加载失败",
+      "notFound": "未找到评估结果",
+      "debugInfo": "调试信息",
+      "sessionId": "会话ID",
+      "parameters": "参数",
+      "none": "无",
+      "yes": "是",
+      "no": "否",
+      "solutions": {
+        "title": "可能的解决方法",
+        "1": "确保从历史记录页面正确点击\"查看结果\"",
+        "2": "检查是否意外删除了评估记录",
+        "3": "清理浏览器缓存后重新评估",
+        "4": "如果问题持续，请重新进行评估"
+      },
+      "retake": "重新测评",
+      "unknown": "未知错误"
+    },
+    "interpretation": {
+      "title": "结果解释"
+    },
+    "recommendations": {
+      "title": "个性化建议"
+    },
+    "dimensions": {
+      "title": "四维度分析",
+      "sosReversed": "性观感反向",
+      "sexGuilt": "性内疚",
+      "sexualShame": "性羞耻",
+      "sisOverSes": "SIS优势"
+    },
+    "scaleScores": {
+      "title": "量表得分详情",
+      "responses": "回答详情"
+    },
+    "info": {
+      "assessmentType": "评估类型",
+      "completedAt": "完成时间",
+      "sessionId": "会话ID"
+    },
+    "disclaimer": {
+      "title": "重要提醒",
+      "description": "本工具仅提供参考，不能替代专业心理健康诊断。如有严重困扰，请及时寻求专业心理咨询师的帮助。"
+    },
+    "shared": {
+      "interpretation": "这是一个分享的评估结果。",
+      "recommendations": "如果您想获得个性化的详细分析，请开始您自己的评估。",
+      "invalid": "分享链接数据无效",
+      "error": "无法解析分享链接"
+    }
+  },
+  "history": {
+    "title": "历史记录",
+    "subtitle": "查看和管理您的评估记录",
+    "empty": {
+      "title": "暂无测评记录",
+      "description": "您还没有完成任何测评。开始您的第一次性压抑指数评估，探索更深层的自我认知。"
+    },
+    "stats": {
+      "total": "总测评次数",
+      "completed": "完成测评",
+      "average": "平均SRI指数",
+      "types": "测评类型"
+    },
+    "management": {
+      "title": "数据管理",
+      "exportJson": "导出JSON",
+      "exportCsv": "导出CSV",
+      "clearAll": "清除所有记录",
+      "confirmClear": {
+        "title": "确认清除所有记录",
+        "description": "此操作将永久删除所有测评历史记录，无法恢复。您确定要继续吗？"
+      }
+    },
+    "records": {
+      "title": "测评记录",
+      "completed": "已完成",
+      "incomplete": "未完成",
+      "duration": "用时：{{minutes}} 分钟",
+      "view": "查看结果",
+      "continue": "继续测评",
+      "confirmDelete": {
+        "title": "确认删除记录",
+        "description": "此操作将永久删除该测评记录，无法恢复。您确定要继续吗？"
+      }
+    },
+    "error": {
+      "loading": "加载历史记录失败:",
+      "deleting": "删除记录失败:",
+      "clearing": "清除所有记录失败:",
+      "exporting": "导出数据失败:"
+    },
+    "export": {
+      "filename": "sri-assessment-history"
+    }
+  },
+  "science": {
+    "title": "科学依据",
+    "description": "基于严谨的心理学研究和经典量表构建的性压抑指数评估体系",
+    "theory": {
+      "title": "理论基础",
+      "dualControl": {
+        "title": "双控制模型 (Dual Control Model)",
+        "description": "由Janssen等人(2002)提出的性反应双控制模型，认为人类性反应受到性兴奋系统(SES)和性抑制系统(SIS)的双重调节。该模型为理解个体性行为差异提供了重要的理论框架。",
+        "international": "国际权威理论"
+      },
+      "repression": {
+        "title": "性压抑概念",
+        "description": "性压抑是指个体对性冲动、性欲望和性行为的系统性抑制，通常源于心理、社会文化和道德因素的综合影响。现代心理学研究表明，适度的性抑制是正常的，但过度压抑可能影响心理健康。",
+        "evidence": "循证支持"
+      }
+    },
+    "scales": {
+      "title": "量表构成",
+      "authorLabel": "作者",
+      "reliabilityLabel": "信度",
+      "sis": {
+        "name": "SIS/SES-SF",
+        "fullName": "性抑制/性兴奋量表简版",
+        "items": "14项",
+        "author": "Janssen et al. (2002)",
+        "reliability": "α = 0.84-0.91",
+        "description": "测量性抑制和性兴奋系统的敏感性，包括性能表现相关抑制(SIS1)和威胁/恐惧相关抑制(SIS2)两个维度。"
+      },
+      "mosher": {
+        "name": "Mosher性内疚量表",
+        "fullName": "Mosher Sexual Guilt Scale", 
+        "items": "10项",
+        "author": "Mosher (1988)",
+        "reliability": "α = 0.88-0.93",
+        "description": "评估个体对性行为和性想法的内疚感程度，反映道德化性压抑的核心特征。"
+      },
+      "kiss": {
+        "name": "KISS-9性羞耻量表",
+        "fullName": "Kyle Inventory of Sexual Shame",
+        "items": "9项", 
+        "author": "Kyle et al. (2013)",
+        "reliability": "α = 0.92-0.95",
+        "description": "测量个体对性身份、性想法和性行为的羞耻体验，捕捉深层的性自我概念问题。"
+      },
+      "sos": {
+        "name": "SOS性观感量表",
+        "fullName": "Sexual Opinion Survey",
+        "items": "5项筛查版",
+        "author": "Fisher et al. (1988)", 
+        "reliability": "α = 0.82-0.89",
+        "description": "评估个体对性刺激和性相关内容的情绪取向，测量性开放性与保守性。"
+      }
+    },
+    "calculation": {
+      "title": "SRI指数计算方法",
+      "dimensions": {
+        "title": "四维度标准化",
+        "sos": "性观感反向",
+        "sosDesc": "SOS分数反向转换，高分表示对性刺激的消极反应",
+        "guilt": "性内疚",
+        "guiltDesc": "Mosher量表原始分数，反映道德化性压抑",
+        "shame": "性羞耻",
+        "shameDesc": "KISS-9分数，测量性身份羞耻体验",
+        "inhibition": "抑制优势",
+        "inhibitionDesc": "(SIS1+SIS2-SES)差值，反映抑制相对兴奋的优势"
+      },
+      "zscore": {
+        "title": "z分数标准化",
+        "description": "将各维度原始分数转换为z分数，消除量纲差异，便于整合分析。"
+      },
+      "mapping": {
+        "title": "0-100映射",
+        "description": "将标准化后的综合分数线性映射到0-100区间，形成易于理解的SRI指数。"
+      }
+    },
+    "validation": {
+      "title": "信效度验证",
+      "reliability": {
+        "title": "信度 (Reliability)",
+        "item1": "内部一致性信度(Cronbach's α)均在0.85以上",
+        "item2": "重测信度(r)在0.78-0.92之间",
+        "item3": "各维度间具有良好的结构一致性"
+      },
+      "validity": {
+        "title": "效度 (Validity)",
+        "item1": "内容效度经专家评审确认",
+        "item2": "结构效度通过验证性因子分析支持",
+        "item3": "效标效度与临床诊断具有显著相关性"
+      }
+    },
+    "recommendations": {
+      "title": "使用建议",
+      "description": "本工具旨在提供科学的自我评估参考，结果解读应结合个人实际情况",
+      "education": {
+        "title": "教育应用",
+        "description": "适用于性教育课程和心理健康普及，帮助学生建立正确的性观念"
+      },
+      "self": {
+        "title": "自我探索",
+        "description": "为个人提供反思性心理状态的工具，促进自我认知和成长"
+      },
+      "therapy": {
+        "title": "咨询辅助",
+        "description": "可作为心理咨询师了解来访者性心理状况的初步评估工具"
+      },
+      "research": {
+        "title": "研究参考",
+        "description": "为性心理学研究提供数据支持和理论验证基础"
+      }
+    }
+  },
+  "guide": {
+    "title": "使用指南",
+    "description": "详细了解如何正确使用性压抑指数(SRI)评估工具，获得准确可靠的测评结果",
+    "quickStart": {
+      "title": "快速开始",
+      "quickVersion": "快测版",
+      "recommended": "推荐首次使用",
+      "time": "约 {{time}} 分钟",
+      "questions": "{{count}} 道核心题目",
+      "dimensions": "涵盖四个核心维度",
+      "fullVersion": "完整版",
+      "inDepth": "深度分析",
+      "comprehensive": "更全面的心理分析"
+    },
+    "process": {
+      "title": "测评流程",
+      "steps": {
+        "consent": {
+          "title": "知情同意",
+          "description": "阅读并同意参与测评的条款"
+        },
+        "demographics": {
+          "title": "基本信息",
+          "description": "填写必要的人口学信息（完全匿名）"
+        },
+        "questionnaire": {
+          "title": "问卷作答",
+          "description": "按照个人实际情况诚实回答问题"
+        },
+        "results": {
+          "title": "查看结果",
+          "description": "获得详细的SRI指数分析报告"
+        }
+      }
+    },
+    "tips": {
+      "title": "答题建议",
+      "honest": {
+        "title": "诚实作答",
+        "description": "请根据您的真实想法和感受作答，没有标准答案"
+      },
+      "intuition": {
+        "title": "直觉反应",
+        "description": "相信第一直觉，不要过度思考每个问题"
+      },
+      "completion": {
+        "title": "完整作答",
+        "description": "尽量完成所有问题，跳过太多会影响结果准确性"
+      },
+      "privacy": {
+        "title": "隐私环境",
+        "description": "在私密、不被打扰的环境中完成测评"
+      }
+    },
+    "interpretation": {
+      "title": "结果解读",
+      "description": "SRI指数采用0-100分制，分数越高表示性压抑程度越严重",
+      "levels": {
+        "veryLow": "性压抑程度很轻，性心理健康状况良好",
+        "low": "性压抑程度较轻，性心理健康状况较好",
+        "medium": "性压抑程度中等，建议关注性心理健康",
+        "high": "性压抑程度较高，建议寻求专业帮助",
+        "veryHigh": "性压抑程度很高，强烈建议寻求专业帮助"
+      },
+      "warning": {
+        "title": "重要提醒",
+        "description": "本工具仅提供参考，不能替代专业心理健康诊断。如有严重困扰，请及时寻求专业心理咨询师的帮助。"
+      }
+    },
+    "privacy": {
+      "title": "隐私保护",
+      "description": "我们高度重视您的隐私保护，采用业界领先的隐私保护措施",
+      "local": {
+        "title": "本地处理",
+        "description": "所有数据仅在您的设备本地处理，不会上传到任何服务器"
+      },
+      "anonymous": {
+        "title": "完全匿名",
+        "description": "不收集任何个人身份信息，数据完全匿名化处理"
+      },
+      "control": {
+        "title": "数据控制",
+        "description": "您拥有完全的数据控制权，可随时查看、导出或删除数据"
+      },
+      "deletion": {
+        "title": "安全删除",
+        "description": "提供一键删除功能，确保数据彻底清除"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": {
+        "q1": {
+          "question": "测评结果准确吗？",
+          "answer": "本工具基于国际权威的心理测量量表，具有良好的信效度。但测评结果仅供自我了解参考，不能替代专业诊断。"
+        },
+        "q2": {
+          "question": "数据安全吗？",
+          "answer": "所有数据均在您的设备本地存储，不会上传到任何服务器。我们不收集任何个人身份信息。"
+        },
+        "q3": {
+          "question": "可以重复测评吗？",
+          "answer": "当然可以。建议在不同时间段重复测评，以观察性心理状态的变化趋势。"
+        },
+        "q4": {
+          "question": "结果可以分享吗？",
+          "answer": "可以生成分享链接或二维码，但分享的数据经过加密处理，保护您的隐私。"
+        }
+      }
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "delete": "删除",
+    "edit": "编辑",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步"
+  }
+}

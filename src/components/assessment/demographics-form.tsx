@@ -1,8 +1,3 @@
-/**
- * 人口学信息表单组件 - 收集必要的背景信息用于结果分析
- * 遵循最小化数据收集原则，保护用户隐私
- */
-
 import React, {useState} from 'react';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
@@ -10,7 +5,7 @@ import {RadioGroup, RadioGroupItem} from '@/components/ui/radio-group';
 import {Label} from '@/components/ui/label';
 import {ArrowLeft, ArrowRight, Users} from 'lucide-react';
 import {Demographics} from '@/types';
-import {DEMOGRAPHICS_QUESTIONS} from '@/lib/scales';
+import {getLocalizedDemographicsQuestions} from '@/lib/scales/i18n'; // 添加国际化支持
 
 interface DemographicsFormProps {
   onSubmit: (demographics: Demographics) => void;
@@ -24,6 +19,9 @@ export function DemographicsForm({ onSubmit, onBack, initialData }: Demographics
     ...initialData
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // 获取国际化后的人口学问题
+  const DEMOGRAPHICS_QUESTIONS = getLocalizedDemographicsQuestions();
 
   const handleChange = (questionId: string, value: string) => {
     setFormData(prev => ({ ...prev, [questionId]: value }));
@@ -41,7 +39,7 @@ export function DemographicsForm({ onSubmit, onBack, initialData }: Demographics
     
     for (const question of requiredQuestions) {
       if (!formData[question.id as keyof Demographics]) {
-        newErrors[question.id] = '请选择一个选项';
+        newErrors[question.id] = localStorage.getItem('language') === 'en' ? 'Please select an option' : '请选择一个选项';
       }
     }
     
@@ -73,15 +71,20 @@ export function DemographicsForm({ onSubmit, onBack, initialData }: Demographics
     return option?.label || value;
   };
 
+  // 获取当前语言
+  const currentLanguage = localStorage.getItem('language') || 'zh';
+
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       {/* 标题 */}
       <div className="text-center">
         <h1 className="text-2xl font-bold text-psychology-primary mb-2">
-          基本信息
+          {currentLanguage === 'en' ? 'Basic Information' : '基本信息'}
         </h1>
         <p className="text-muted-foreground">
-          请提供一些基本信息，这将帮助我们提供更准确的结果分析
+          {currentLanguage === 'en' ? 
+            'Please provide some basic information, which will help us provide more accurate result analysis' : 
+            '请提供一些基本信息，这将帮助我们提供更准确的结果分析'}
         </p>
       </div>
 
@@ -90,7 +93,7 @@ export function DemographicsForm({ onSubmit, onBack, initialData }: Demographics
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Users className="w-5 h-5 text-psychology-primary" />
-            人口学信息
+            {currentLanguage === 'en' ? 'Demographic Information' : '人口学信息'}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-8">
@@ -107,7 +110,7 @@ export function DemographicsForm({ onSubmit, onBack, initialData }: Demographics
                   </Label>
                   {!question.required && (
                     <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
-                      可选
+                      {currentLanguage === 'en' ? 'Optional' : '可选'}
                     </span>
                   )}
                 </div>
@@ -143,10 +146,13 @@ export function DemographicsForm({ onSubmit, onBack, initialData }: Demographics
 
           {/* 隐私提醒 */}
           <div className="bg-muted/30 p-4 rounded-lg border border-muted">
-            <h4 className="font-medium text-sm mb-2">隐私保护</h4>
+            <h4 className="font-medium text-sm mb-2">
+              {currentLanguage === 'en' ? 'Privacy Protection' : '隐私保护'}
+            </h4>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              以上信息仅用于提供个性化的结果分析，所有数据均在您的设备本地处理，
-              不会上传到任何服务器。您可以随时删除这些数据。
+              {currentLanguage === 'en' ? 
+                'The above information is only used to provide personalized result analysis. All data is processed locally on your device and will not be uploaded to any server. You can delete this data at any time.' : 
+                '以上信息仅用于提供个性化的结果分析，所有数据均在您的设备本地处理，不会上传到任何服务器。您可以随时删除这些数据。'}
             </p>
           </div>
 
@@ -155,14 +161,14 @@ export function DemographicsForm({ onSubmit, onBack, initialData }: Demographics
             {onBack && (
               <Button variant="outline" onClick={onBack}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                返回
+                {currentLanguage === 'en' ? 'Back' : '返回'}
               </Button>
             )}
             <Button 
               onClick={handleSubmit}
               className="bg-psychology-primary hover:bg-psychology-primary/90 ml-auto"
             >
-              继续评估
+              {currentLanguage === 'en' ? 'Continue Assessment' : '继续评估'}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
@@ -171,7 +177,7 @@ export function DemographicsForm({ onSubmit, onBack, initialData }: Demographics
 
       {/* 进度提示 */}
       <div className="text-center text-sm text-muted-foreground">
-        第 1 步，共 3 步：基本信息收集
+        {currentLanguage === 'en' ? 'Step 1 of 3: Basic Information Collection' : '第 1 步，共 3 步：基本信息收集'}
       </div>
     </div>
   );

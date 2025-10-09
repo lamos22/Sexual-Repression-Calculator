@@ -1,0 +1,542 @@
+{
+  "app": {
+    "title": "Sexual Repression Index Calculator",
+    "description": "Professional Sexual Mental Health Assessment Tool Based on Scientific Research"
+  },
+  "navigation": {
+    "home": "Home",
+    "assessment": "Assessment",
+    "results": "Results",
+    "history": "History",
+    "science": "Science",
+    "guide": "Guide"
+  },
+  "home": {
+    "welcome": "Welcome to Sexual Repression Index Calculator",
+    "subtitle": "A professional assessment tool based on multiple validated psychological scales",
+    "features": {
+      "scientific": "Scientific and Reliable: Based on internationally recognized scales including SIS/SES, Mosher Sexual Guilt, KISS-9, and SOS"
+    },
+    "adaptiveAssessment": {
+      "title": "Intelligent Adaptive Assessment",
+      "description": "The system automatically selects the most suitable scale combination based on your age group and personal background. Special protection mechanisms are provided for adolescents aged 14-17, and culturally sensitive assessment content is provided for users without sexual experience, ensuring that everyone can obtain accurate and appropriate assessment experience."
+    },
+    "quickStart": "Start Quick Assessment",
+    "fullVersion": "Full Version Assessment",
+    "begin": "Begin Assessment",
+    "metrics": {
+      "time": "Minutes Quick Test",
+      "dimensions": "Core Dimensions",
+      "privacy": "Privacy Protection",
+      "scientific": "Scientific",
+      "verified": "Research Verified"
+    },
+    "versionSelection": {
+      "title": "Choose the Assessment Version That Suits You",
+      "description": "We offer two assessment versions. You can choose according to your available time and level of detail required",
+      "recommended": "Recommended",
+      "time": "Estimated Time",
+      "questions": "Number of Questions",
+      "minutes": "minutes",
+      "questionsUnit": "questions",
+      "quick": {
+        "title": "Quick Assessment Version",
+        "subtitle": "Suitable for first-time use and quick understanding",
+        "features": {
+          "1": "SIS/SES-SF 14-item Scale",
+          "2": "Mosher Sexual Guilt 10-item Short Version",
+          "3": "KISS-9 Sexual Shame Scale",
+          "4": "SOS Sexual Opinion Screening Version"
+        }
+      },
+      "full": {
+        "title": "Full Assessment Version",
+        "subtitle": "More comprehensive and in-depth professional analysis",
+        "features": {
+          "1": "Full SIS/SES Scale",
+          "2": "Full Mosher Sexual Guilt Scale",
+          "3": "KISS-9 + Additional Dimensional Analysis",
+          "4": "BSAS Sexual Attitude Scale Criterion"
+        },
+        "start": "Start Full Assessment"
+      }
+    },
+    "scientificBasis": {
+      "title": "Scientifically Reliable Assessment Foundation",
+      "description": "Based on internationally recognized psychometric scales, rigorously validated scientific tools",
+      "scales": {
+        "sis": {
+          "title": "Dual Control Model",
+          "description": "Based on the SIS/SES dual control model by Janssen et al., measuring sexual inhibition and sexual excitation systems"
+        },
+        "guilt": {
+          "title": "Sexual Guilt Measurement",
+          "description": "Using the Mosher Sexual Guilt Scale to assess sexual-related guilt and moral burden"
+        },
+        "shame": {
+          "title": "Sexual Shame Assessment",
+          "description": "Using the KISS-9 scale to measure sexual-related shame experiences and self-acceptance"
+        },
+        "sos": {
+          "title": "Sexual Opinion Survey",
+          "description": "The SOS scale assesses emotional orientation and approach-avoidance tendencies toward sexual stimuli"
+        }
+      }
+    },
+    "privacy": {
+      "title": "Your Privacy Is Our Primary Concern",
+      "description": "All assessment data is processed and stored locally on your device only, and will not be uploaded to any server. You have complete data control and can delete or export your assessment history at any time.",
+      "benefits": {
+        "1": "Local Data Storage",
+        "2": "Completely Anonymous",
+        "3": "Deletable at Any Time"
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Sexual Mental Health Journey?",
+      "description": "Through scientific self-assessment, better understand yourself and promote healthy sexual psychological development and intimate relationships.",
+      "start": "Start Assessment Now",
+      "learnMore": "Learn More"
+    },
+    "footer": {
+      "description": "A sexual repression index calculator based on scientific research to help you better understand your sexual mental health.",
+      "tools": {
+        "title": "Assessment Tools",
+        "quick": "Quick Assessment",
+        "full": "Full Assessment",
+        "history": "History Records"
+      },
+      "resources": {
+        "title": "Resources",
+        "guide": "User Guide",
+        "science": "Scientific Basis",
+        "privacy": "Privacy Policy"
+      },
+      "support": {
+        "title": "Support",
+        "faq": "FAQ",
+        "consultation": "Professional Consultation",
+        "crisis": "Crisis Resources"
+      },
+      "copyright": "For educational and self-understanding purposes only, cannot replace professional mental health services."
+    },
+    "nonProfitModal": {
+      "title": "Important Statement",
+      "description": "This project is open source and free, designed to provide educational and self-understanding sexual mental health assessment tools.",
+      "warning": "If you paid for this link, please request a refund/report immediately⚠️",
+      "benefit1": "All services provided completely free of charge",
+      "benefit2": "No commercial sponsorship of any form accepted",
+      "benefit3": "Data used only for personal educational purposes",
+      "footer": "This website is only an auxiliary tool for mental health education. All assessment results are for reference only and cannot replace professional mental health diagnosis and treatment.",
+      "confirm": "I understand and agree to continue using"
+    }
+  },
+  "assessment": {
+    "type": {
+      "quick": "Quick Assessment",
+      "full": "Full Assessment"
+    },
+    "progressDialog": {
+      "title": "Unfinished Assessment Detected",
+      "description": "Unfinished assessment saved locally detected, {{count}} questions answered. Please choose to continue or restart.",
+      "restart": "Restart",
+      "continue": "Continue"
+    },
+    "progress": {
+      "overall": "Overall Progress"
+    },
+    "processing": {
+      "title": "Analyzing Your Responses",
+      "description": "We are using scientific algorithms to calculate your Sexual Repression Index, please wait...",
+      "step1": "Applying multidimensional standardization algorithm",
+      "step2": "Generating personalized analysis report",
+      "step3": "Protecting your privacy data"
+    },
+    "consent": {
+      "title": "Informed Consent",
+      "description": "Please read the following carefully before starting the assessment",
+      "consentText": "I understand that this is a psychological measurement tool for self-understanding. The results are for reference only and cannot replace professional mental health services. I voluntarily agree to participate in this assessment and understand that all my data will be stored only in the local browser and will not be uploaded to any server.",
+      "agree": "I Agree",
+      "disagree": "I Disagree"
+    },
+    "demographics": {
+      "title": "Demographic Information",
+      "age": "Age",
+      "gender": {
+        "label": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "other": "Other",
+        "preferNotToSay": "Prefer Not to Say"
+      },
+      "education": {
+        "label": "Education Level",
+        "primary": "Primary School or Below",
+        "secondary": "Secondary School",
+        "bachelor": "Bachelor's Degree",
+        "master": "Master's Degree or Above"
+      },
+      "relationship": {
+        "label": "Relationship Status",
+        "single": "Single",
+        "inRelationship": "In a Relationship",
+        "married": "Married",
+        "divorced": "Divorced",
+        "widowed": "Widowed"
+      },
+      "next": "Next"
+    }
+  },
+  "results": {
+    "title": "Assessment Results",
+    "sriIndex": "SRI Index",
+    "scoreExplanation": "Your SRI index is {{score}}, at the {{level}} level",
+    "scoreRange": {
+      "low": "Less repression",
+      "medium": "Moderate",
+      "high": "More repression"
+    },
+    "level": {
+      "verylow": "Very Low",
+      "low": "Low",
+      "moderate": "Moderate",
+      "high": "High",
+      "veryhigh": "Very High"
+    },
+    "export": "Export Results",
+    "restart": "Restart Assessment",
+    "loading": {
+      "title": "Loading Results",
+      "description": "Retrieving your assessment results..."
+    },
+    "error": {
+      "title": "Loading Failed",
+      "notFound": "Assessment results not found",
+      "debugInfo": "Debug Information",
+      "sessionId": "Session ID",
+      "parameters": "Parameters",
+      "none": "None",
+      "yes": "Yes",
+      "no": "No",
+      "solutions": {
+        "title": "Possible Solutions",
+        "1": "Ensure you correctly clicked \"View Results\" from the history page",
+        "2": "Check if the assessment record was accidentally deleted",
+        "3": "Clear browser cache and reassess",
+        "4": "If the problem persists, please retake the assessment"
+      },
+      "retake": "Retake Assessment",
+      "unknown": "Unknown error"
+    },
+    "interpretation": {
+      "title": "Result Interpretation"
+    },
+    "recommendations": {
+      "title": "Personalized Recommendations"
+    },
+    "dimensions": {
+      "title": "Four-Dimensional Analysis",
+      "sosReversed": "Sexual Opinion Reversed",
+      "sexGuilt": "Sexual Guilt",
+      "sexualShame": "Sexual Shame",
+      "sisOverSes": "SIS Advantage"
+    },
+    "scaleScores": {
+      "title": "Scale Score Details",
+      "responses": "Response Details"
+    },
+    "info": {
+      "assessmentType": "Assessment Type",
+      "completedAt": "Completed At",
+      "sessionId": "Session ID"
+    },
+    "disclaimer": {
+      "title": "Important Reminder",
+      "description": "This tool is for reference only and cannot replace professional mental health diagnosis. If you have serious concerns, please seek help from a professional psychological counselor promptly."
+    },
+    "shared": {
+      "interpretation": "This is a shared assessment result.",
+      "recommendations": "If you want to get a personalized detailed analysis, please start your own assessment.",
+      "invalid": "Invalid shared link data",
+      "error": "Unable to parse shared link"
+    }
+  },
+  "history": {
+    "title": "History Records",
+    "subtitle": "View and manage your assessment records",
+    "empty": {
+      "title": "No Assessment Records",
+      "description": "You haven't completed any assessments yet. Start your first Sexual Repression Index assessment to explore deeper self-awareness."
+    },
+    "stats": {
+      "total": "Total Assessments",
+      "completed": "Completed Assessments",
+      "average": "Average SRI Index",
+      "types": "Assessment Types"
+    },
+    "management": {
+      "title": "Data Management",
+      "exportJson": "Export JSON",
+      "exportCsv": "Export CSV",
+      "clearAll": "Clear All Records",
+      "confirmClear": {
+        "title": "Confirm Clear All Records",
+        "description": "This operation will permanently delete all assessment history records and cannot be recovered. Are you sure you want to continue?"
+      }
+    },
+    "records": {
+      "title": "Assessment Records",
+      "completed": "Completed",
+      "incomplete": "Incomplete",
+      "duration": "Duration: {{minutes}} minutes",
+      "view": "View Results",
+      "continue": "Continue Assessment",
+      "confirmDelete": {
+        "title": "Confirm Delete Record",
+        "description": "This operation will permanently delete this assessment record and cannot be recovered. Are you sure you want to continue?"
+      }
+    },
+    "error": {
+      "loading": "Failed to load history records:",
+      "deleting": "Failed to delete record:",
+      "clearing": "Failed to clear all records:",
+      "exporting": "Failed to export data:"
+    },
+    "export": {
+      "filename": "sri-assessment-history"
+    }
+  },
+  "science": {
+    "title": "Scientific Basis",
+    "description": "Sexual Repression Index Assessment System Based on Rigorous Psychological Research and Classic Scales",
+    "theory": {
+      "title": "Theoretical Foundation",
+      "dualControl": {
+        "title": "Dual Control Model",
+        "description": "The dual control model of sexual response proposed by Janssen et al. (2002) suggests that human sexual response is regulated by dual systems: the Sexual Excitation System (SES) and the Sexual Inhibition System (SIS). This model provides an important theoretical framework for understanding individual differences in sexual behavior.",
+        "international": "International Authority Theory"
+      },
+      "repression": {
+        "title": "Concept of Sexual Repression",
+        "description": "Sexual repression refers to the systematic inhibition of sexual impulses, desires, and behaviors by individuals, usually stemming from the combined influence of psychological, socio-cultural, and moral factors. Modern psychological research shows that moderate sexual inhibition is normal, but excessive repression may affect mental health.",
+        "evidence": "Evidence-Based Support"
+      }
+    },
+    "scales": {
+      "title": "Scale Composition",
+      "authorLabel": "Author",
+      "reliabilityLabel": "Reliability",
+      "sis": {
+        "name": "SIS/SES-SF",
+        "fullName": "Sexual Inhibition/Sexual Excitation Scale Short Form",
+        "items": "14 items",
+        "author": "Janssen et al. (2002)",
+        "reliability": "α = 0.84-0.91",
+        "description": "Measures the sensitivity of sexual inhibition and sexual excitation systems, including two dimensions: performance-related inhibition (SIS1) and threat/fear-related inhibition (SIS2)."
+      },
+      "mosher": {
+        "name": "Mosher Sexual Guilt Scale",
+        "fullName": "Mosher Sexual Guilt Scale", 
+        "items": "10 items",
+        "author": "Mosher (1988)",
+        "reliability": "α = 0.88-0.93",
+        "description": "Assesses the degree of guilt individuals feel toward sexual behaviors and thoughts, reflecting the core characteristics of moralized sexual repression."
+      },
+      "kiss": {
+        "name": "KISS-9 Sexual Shame Scale",
+        "fullName": "Kyle Inventory of Sexual Shame",
+        "items": "9 items", 
+        "author": "Kyle et al. (2013)",
+        "reliability": "α = 0.92-0.95",
+        "description": "Measures individuals' shame experiences related to sexual identity, sexual thoughts, and sexual behaviors, capturing deep sexual self-concept issues."
+      },
+      "sos": {
+        "name": "SOS Sexual Opinion Scale",
+        "fullName": "Sexual Opinion Survey",
+        "items": "5-item screening version",
+        "author": "Fisher et al. (1988)", 
+        "reliability": "α = 0.82-0.89",
+        "description": "Assesses individuals' emotional orientation toward sexual stimuli and related content, measuring sexual openness versus conservatism."
+      }
+    },
+    "calculation": {
+      "title": "SRI Index Calculation Method",
+      "dimensions": {
+        "title": "Four-Dimensional Standardization",
+        "sos": "Sexual Opinion Reversed",
+        "sosDesc": "SOS score reversed conversion, high score indicates negative reaction to sexual stimuli",
+        "guilt": "Sexual Guilt",
+        "guiltDesc": "Mosher scale raw score, reflecting moralized sexual repression",
+        "shame": "Sexual Shame",
+        "shameDesc": "KISS-9 score, measuring sexual identity shame experience",
+        "inhibition": "Inhibition Advantage",
+        "inhibitionDesc": "(SIS1+SIS2-SES) difference, reflecting the advantage of inhibition over excitation"
+      },
+      "zscore": {
+        "title": "Z-Score Standardization",
+        "description": "Convert raw scores of each dimension to z-scores to eliminate dimensional differences and facilitate integrated analysis."
+      },
+      "mapping": {
+        "title": "0-100 Mapping",
+        "description": "Linearly map the standardized comprehensive score to the 0-100 range to form an easily understandable SRI index."
+      }
+    },
+    "validation": {
+      "title": "Reliability and Validity Verification",
+      "reliability": {
+        "title": "Reliability",
+        "item1": "Internal consistency reliability (Cronbach's α) is above 0.85",
+        "item2": "Test-retest reliability (r) ranges from 0.78 to 0.92",
+        "item3": "Good structural consistency across dimensions"
+      },
+      "validity": {
+        "title": "Validity",
+        "item1": "Content validity confirmed by expert review",
+        "item2": "Structural validity supported by confirmatory factor analysis",
+        "item3": "Criterion validity shows significant correlation with clinical diagnosis"
+      }
+    },
+    "recommendations": {
+      "title": "Usage Recommendations",
+      "description": "This tool aims to provide scientific self-assessment reference. Result interpretation should be combined with personal actual circumstances",
+      "education": {
+        "title": "Educational Application",
+        "description": "Suitable for sex education courses and mental health promotion, helping students establish correct sexual concepts"
+      },
+      "self": {
+        "title": "Self-Exploration",
+        "description": "Provides a tool for individuals to reflect on their sexual psychological state, promoting self-awareness and growth"
+      },
+      "therapy": {
+        "title": "Counseling Support",
+        "description": "Can be used as an initial assessment tool for counselors to understand clients' sexual psychological status"
+      },
+      "research": {
+        "title": "Research Reference",
+        "description": "Provides data support and theoretical validation basis for sexual psychology research"
+      }
+    }
+  },
+  "guide": {
+    "title": "User Guide",
+    "description": "Learn in detail how to properly use the Sexual Repression Index (SRI) assessment tool to obtain accurate and reliable evaluation results",
+    "quickStart": {
+      "title": "Quick Start",
+      "quickVersion": "Quick Version",
+      "recommended": "Recommended for first-time use",
+      "time": "Approx. {{time}} minutes",
+      "questions": "{{count}} core questions",
+      "dimensions": "Covers four core dimensions",
+      "fullVersion": "Full Version",
+      "inDepth": "In-depth analysis",
+      "comprehensive": "More comprehensive psychological analysis"
+    },
+    "process": {
+      "title": "Assessment Process",
+      "steps": {
+        "consent": {
+          "title": "Informed Consent",
+          "description": "Read and agree to the terms of participation in the assessment"
+        },
+        "demographics": {
+          "title": "Basic Information",
+          "description": "Fill in necessary demographic information (completely anonymous)"
+        },
+        "questionnaire": {
+          "title": "Questionnaire Completion",
+          "description": "Answer questions honestly according to your actual situation"
+        },
+        "results": {
+          "title": "View Results",
+          "description": "Obtain detailed SRI index analysis report"
+        }
+      }
+    },
+    "tips": {
+      "title": "Answering Tips",
+      "honest": {
+        "title": "Honest Answers",
+        "description": "Please answer according to your true thoughts and feelings. There is no standard answer"
+      },
+      "intuition": {
+        "title": "Intuitive Response",
+        "description": "Trust your first intuition, don't overthink each question"
+      },
+      "completion": {
+        "title": "Complete Answers",
+        "description": "Try to complete all questions. Skipping too many will affect result accuracy"
+      },
+      "privacy": {
+        "title": "Privacy Environment",
+        "description": "Complete the assessment in a private, undisturbed environment"
+      }
+    },
+    "interpretation": {
+      "title": "Result Interpretation",
+      "description": "The SRI index uses a 0-100 scoring system. The higher the score, the more severe the sexual repression",
+      "levels": {
+        "veryLow": "Very low level of sexual repression, good sexual mental health",
+        "low": "Low level of sexual repression, better sexual mental health",
+        "medium": "Moderate level of sexual repression, recommend paying attention to sexual mental health",
+        "high": "High level of sexual repression, recommend seeking professional help",
+        "veryHigh": "Very high level of sexual repression, strongly recommend seeking professional help"
+      },
+      "warning": {
+        "title": "Important Reminder",
+        "description": "This tool is for reference only and cannot replace professional mental health diagnosis. If you have serious concerns, please seek help from a professional psychological counselor promptly."
+      }
+    },
+    "privacy": {
+      "title": "Privacy Protection",
+      "description": "We highly value your privacy protection and adopt industry-leading privacy protection measures",
+      "local": {
+        "title": "Local Processing",
+        "description": "All data is processed locally on your device only and will not be uploaded to any server"
+      },
+      "anonymous": {
+        "title": "Completely Anonymous",
+        "description": "No personal identity information is collected. Data is completely anonymized"
+      },
+      "control": {
+        "title": "Data Control",
+        "description": "You have complete data control and can view, export, or delete data at any time"
+      },
+      "deletion": {
+        "title": "Secure Deletion",
+        "description": "Provides one-click deletion function to ensure complete data removal"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "q1": {
+          "question": "Are the assessment results accurate?",
+          "answer": "This tool is based on internationally authoritative psychometric scales with good reliability and validity. However, the assessment results are for self-understanding reference only and cannot replace professional diagnosis."
+        },
+        "q2": {
+          "question": "Is the data secure?",
+          "answer": "All data is stored locally on your device and will not be uploaded to any server. We do not collect any personal identity information."
+        },
+        "q3": {
+          "question": "Can I take the assessment multiple times?",
+          "answer": "Of course. It is recommended to take the assessment at different time periods to observe changes in sexual psychological state trends."
+        },
+        "q4": {
+          "question": "Can results be shared?",
+          "answer": "Sharing links or QR codes can be generated, but the shared data is encrypted to protect your privacy."
+        }
+      }
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}
