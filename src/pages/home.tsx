@@ -24,7 +24,9 @@ import {
   ArrowRight,
   BookOpen,
   Target,
-  History
+  History,
+  AlertTriangle,
+  AlertOctagon
 } from 'lucide-react';
 import { Menu } from 'lucide-react'; // 添加菜单图标
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -71,10 +73,13 @@ export default function Home() {
             <div className="text-center mb-6">
               <Shield className="w-16 h-16 text-psychology-primary mx-auto mb-4" />
               <h2 className="text-2xl font-bold text-psychology-primary mb-2">
-                非盈利性声明
+                重要声明
               </h2>
-              <p className="text-gray-600 mb-4">
-                本网站为<strong>非盈利性质</strong>，旨在提供教育和自我了解的性心理健康评估工具。
+              <p className="text-gray-600 mb-4 text-lg">
+                本项目<strong>开源免费</strong>，旨在提供教育和自我了解的性心理健康评估工具。
+                <span className="text-red-600 font-bold">
+    如您花钱买到的链接，请及时退款/举报⚠️
+  </span>
               </p>
               <div className="bg-psychology-primary/5 p-4 rounded-lg mb-4 text-left">
                 <div className="flex items-start gap-2 mb-2">
@@ -90,15 +95,17 @@ export default function Home() {
                   <span className="text-sm">数据仅用于个人教育目的</span>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground mb-4">
+              <p className="text-base text-muted-foreground mb-4">
                   本网站仅作为心理健康教育的辅助工具，所有评估结果仅供参考，
                   <strong>不能替代专业的心理健康诊断和治疗</strong>。
                 </p>
             </div>
             <Button 
               onClick={handleConfirm}
-              className="w-full bg-psychology-primary hover:bg-psychology-primary/90 text-white py-3"
+              // className="w-full bg-psychology-primary hover:bg-psychology-primary/90 text-white py-3"
+              className="w-full bg-green-600 hover:bg-green-700 text-white py-3 text-base"
             >
+              <CheckCircle className="w-4 h-4 inline mr-1" />
               我已理解并同意继续使用
             </Button>
           </div>
