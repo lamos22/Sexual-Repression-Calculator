@@ -13,7 +13,8 @@
     "type-check": "tsc -b --pretty",
     "lint": "tsc -b --pretty",
     "preview": "rsbuild preview",
-    "start": "cd ./dist && deno run --allow-net --allow-read server.cjs"
+    "start": "cd ./dist && deno run --allow-net --allow-read server.cjs",
+    "build:vercel": "rsbuild build -c rsbuild.config.cloudflare.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.4",
