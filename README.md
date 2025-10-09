@@ -92,6 +92,8 @@ docker run -p 8000:8000 appe233/sexual-repression-calculator
 
 你可以根据需要选择其中一种或两种机制同时使用。
 
+# ⚠️
+>不使用时建议将functions改名disabled,并注释掉rsbuild.config.cloudflare.ts里面的` { from: "./functions/_middleware.js", to: "_middleware.js" }, `，避免cloudflare每日请求消耗过高
 ### 注意事项
 
 - 此应用是纯静态的 React 应用，所有数据处理都在客户端进行
