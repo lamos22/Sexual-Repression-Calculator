@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { setupRoutes } from "./routes.ts";
+import { setupRoutes } from "./routes";
 
 const app = new Hono();
 
