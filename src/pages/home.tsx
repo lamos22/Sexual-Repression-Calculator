@@ -3,7 +3,8 @@
  * 提供评估介绍、快速开始入口和功能说明
  */
 
-import React from 'react';
+// import React from 'react';
+import React, { useState, useEffect } from 'react'; // 添加 useState 和 useEffect
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -29,8 +30,85 @@ import { Menu } from 'lucide-react'; // 添加菜单图标
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export default function Home() {
+
+  //==============================================//
+  // 添加非盈利声明弹窗状态
+  const [showNonProfitModal, setShowNonProfitModal] = useState(false);
+
+  useEffect(() => {
+    // 检查用户是否已经确认过非盈利声明
+    const hasConfirmed = localStorage.getItem('nonProfitConfirmed');
+    if (!hasConfirmed) {
+      // 延迟显示弹窗，避免页面加载时立即弹出
+      const timer = setTimeout(() => {
+        setShowNonProfitModal(true);
+      // 阻止页面滚动
+        document.body.style.overflow = 'hidden';
+      }, 500);
+      
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleConfirm = () => {
+    // 将确认状态保存到本地存储
+    localStorage.setItem('nonProfitConfirmed', 'true');
+    setShowNonProfitModal(false);
+    // 恢复页面滚动
+    document.body.style.overflow = 'auto';
+  };
+
+  const handleReport = () => {
+    window.open('https://bx282zvgdvv.feishu.cn/share/base/form/shrcntcJL58vkZJut2iIAHbjSif', '_blank');
+  };
+
+  //===================================================================//
   return (
     <div className="min-h-screen bg-gradient-to-br from-psychology-calm via-white to-psychology-warm">
+
+      {/* ////////////////////////////////////////////////// */}
+      {/* 非盈利声明弹窗 */}
+      {showNonProfitModal && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl">
+            <div className="text-center mb-6">
+              <Shield className="w-16 h-16 text-psychology-primary mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-psychology-primary mb-2">
+                非盈利性声明
+              </h2>
+              <p className="text-gray-600 mb-4">
+                本网站为<strong>非盈利性质</strong>，旨在提供教育和自我了解的性心理健康评估工具。
+              </p>
+              <div className="bg-psychology-primary/5 p-4 rounded-lg mb-4 text-left">
+                <div className="flex items-start gap-2 mb-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm">所有服务完全免费提供</span>
+                </div>
+                <div className="flex items-start gap-2 mb-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm">不接受任何形式的商业赞助</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm">数据仅用于个人教育目的</span>
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                  本网站仅作为心理健康教育的辅助工具，所有评估结果仅供参考，
+                  <strong>不能替代专业的心理健康诊断和治疗</strong>。
+                </p>
+            </div>
+            <Button 
+              onClick={handleConfirm}
+              className="w-full bg-psychology-primary hover:bg-psychology-primary/90 text-white py-3"
+            >
+              我已理解并同意继续使用
+            </Button>
+          </div>
+        </div>
+      )}
+{/* /////////////////////////////////////////////////////////////////////////// */}
+
       {/* 背景装饰 */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-8 h-8 bg-psychology-primary/10 rounded-full"></div>
