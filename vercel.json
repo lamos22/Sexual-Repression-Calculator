@@ -1,30 +1,25 @@
 {
-    "$schema": "https://openapi.vercel.sh/vercel.json",
-    "functions": {
-        "api/**/*.[jt]s": {
-            "runtime": "vercel-deno@3.1.0"
-        }
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/web"
+      }
     },
-    "buildCommand": "npm run build",
-    "outputDirectory": "dist/web",
-    "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "/api/$1.ts"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/dist/web/$1"
-        },
-        {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/.*",
-            "dest": "/dist/web/index.html"
-        }
-    ],
-    "env": {
-        "NODE_ENV": "production"
+    {
+      "src": "api/index.ts",
+      "use": "vercel-deno"
     }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }

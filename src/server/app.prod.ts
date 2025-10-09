@@ -21,4 +21,4 @@ app.use(
 
 setupRoutes(app);
 
-Deno.serve(app.fetch);
+export default app;
