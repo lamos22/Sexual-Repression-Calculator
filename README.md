@@ -43,6 +43,12 @@ npm run build
 npm start
 ```
 
+### 使用 Docker 运行
+
+```bash
+docker run -p 8000:8000 appe233/sexual-repression-calculator
+```
+
 ### 访问应用
 
 - 开发环境: http://localhost:3000
