@@ -83,7 +83,7 @@ export default function Home() {
         </Button>
         <Button variant="ghost" size="sm" asChild className="justify-start">
           <a 
-            href="https://github.com/banlanzs/Sexual-Repression-Calculator" 
+            href="https://github.com/lamos22/Sexual-Repression-Calculator" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2"
