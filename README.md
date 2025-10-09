@@ -101,6 +101,33 @@ docker run -p 8000:8000 appe233/sexual-repression-calculator
 - 应用使用 localStorage 存储用户数据，数据不会上传到服务器
 - 使用 `--legacy-peer-deps` 参数解决依赖冲突问题
 
+## ▲ Vercel 部署
+
+该项目也支持部署到 Vercel 平台。
+
+### 部署配置
+
+- **构建命令**: `npm run build:vercel`
+- **输出目录**: `dist`
+
+### 部署步骤
+
+1. 将代码推送到 GitHub 仓库
+2. 在 Vercel Dashboard 中导入项目
+3. 配置构建设置：
+   - 构建命令: `npm run build:vercel`
+   - 输出目录: `dist`
+4. 点击部署
+
+### 环境变量配置
+
+Vercel 部署不需要特殊的环境变量配置，但如果你想启用防滥用功能，可以添加以下环境变量：
+
+~~1. **弹窗提醒机制**：~~
+   ~~- 添加环境变量：`SHOW_ABUSE_POPUP` = `true`~~
+
+~~注意：由于 Vercel 的架构限制，跳转页面机制可能无法正常工作，建议使用弹窗提醒机制。~~
+
 ## 📋 功能说明
 
 ### 评估版本
