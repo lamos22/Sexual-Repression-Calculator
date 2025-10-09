@@ -58,9 +58,6 @@ export default function Home() {
     document.body.style.overflow = 'auto';
   };
 
-  const handleReport = () => {
-    window.open('https://bx282zvgdvv.feishu.cn/share/base/form/shrcntcJL58vkZJut2iIAHbjSif', '_blank');
-  };
 
   //===================================================================//
   return (
