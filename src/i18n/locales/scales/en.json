@@ -231,7 +231,7 @@
     },
     "options": {
       "age": {
-        "0": "14-17 years old",
+        "0": "14-17 years old (Teen Adaptation Version)",
         "1": "18-24 years old",
         "2": "25-34 years old",
         "3": "35-44 years old",
@@ -251,8 +251,8 @@
         "4": "Prefer not to answer"
       },
       "sexualActivity": {
-        "0": "Never had sexual behavior",
-        "1": "Had sexual behavior, but none in the past year",
+        "0": "Never had sexual behavior (Inexperienced Adaptation Version)",
+        "1": "Had sexual behavior, but none in the past year (Low Activity Adaptation Version)",
         "2": "Rarely (1-3 times/year)",
         "3": "Occasionally (1-3 times/month)",
         "4": "Often (1-3 times/week)",

@@ -387,17 +387,39 @@ export function isInexperienced(demographics: Demographics): boolean {
  */
 export function getUserGroupDescription(demographics: Demographics): string {
   if (isMinor(demographics)) {
-    return '青少年适应版';
+    return '青少年适应版'; // Teen Adaptation Version
   }
   
   if (isInexperienced(demographics)) {
-    return '无性经验适应版';
+    return '无性经验适应版'; // Inexperienced Adaptation Version
   }
   
   const sexualActivity = parseInt(demographics.sexualActivity);
   if (sexualActivity === 1) {
-    return '低活跃度适应版';
+    return '低活跃度适应版'; // Low Activity Adaptation Version
   }
   
-  return '标准版';
+  return '标准版'; // Standard Version
+}
+
+/**
+ * 获取用户群体的英文描述
+ * @param demographics 用户人口学信息
+ * @returns 用户群体英文描述
+ */
+export function getUserGroupDescriptionEn(demographics: Demographics): string {
+  if (isMinor(demographics)) {
+    return 'Teen Adaptation Version';
+  }
+  
+  if (isInexperienced(demographics)) {
+    return 'Inexperienced Adaptation Version';
+  }
+  
+  const sexualActivity = parseInt(demographics.sexualActivity);
+  if (sexualActivity === 1) {
+    return 'Low Activity Adaptation Version';
+  }
+  
+  return 'Standard Version';
 }

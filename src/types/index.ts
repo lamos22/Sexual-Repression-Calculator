@@ -29,6 +29,7 @@ export interface QuestionOption {
   value: number;
   label: string;
   description?: string;
+  enLabel?: string; // 英文标签
 }
 
 // 计分方法
@@ -151,18 +152,18 @@ export const SRI_LEVELS = {
 
 // 李克特量表选项
 export const LIKERT_OPTIONS = {
-  STRONGLY_DISAGREE: { value: 1, label: '非常不同意' },
-  DISAGREE: { value: 2, label: '不同意' },
-  NEUTRAL: { value: 3, label: '中性' },
-  AGREE: { value: 4, label: '同意' },
-  STRONGLY_AGREE: { value: 5, label: '非常同意' }
+  STRONGLY_DISAGREE: { value: 1, label: '非常不同意', enLabel: 'Strongly Disagree' },
+  DISAGREE: { value: 2, label: '不同意', enLabel: 'Disagree' },
+  NEUTRAL: { value: 3, label: '中性', enLabel: 'Neutral' },
+  AGREE: { value: 4, label: '同意', enLabel: 'Agree' },
+  STRONGLY_AGREE: { value: 5, label: '非常同意', enLabel: 'Strongly Agree' }
 } as const;
 
 // 频率选项
 export const FREQUENCY_OPTIONS = {
-  NEVER: { value: 1, label: '从不' },
-  RARELY: { value: 2, label: '很少' },
-  SOMETIMES: { value: 3, label: '有时' },
-  OFTEN: { value: 4, label: '经常' },
-  ALWAYS: { value: 5, label: '总是' }
+  NEVER: { value: 1, label: '从不', enLabel: 'Never' },
+  RARELY: { value: 2, label: '很少', enLabel: 'Rarely' },
+  SOMETIMES: { value: 3, label: '有时', enLabel: 'Sometimes' },
+  OFTEN: { value: 4, label: '经常', enLabel: 'Often' },
+  ALWAYS: { value: 5, label: '总是', enLabel: 'Always' }
 } as const;

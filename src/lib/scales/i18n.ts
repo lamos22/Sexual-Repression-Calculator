@@ -1,5 +1,5 @@
 import { Scale, Question, QuestionOption } from '@/types';
-import { ALL_SCALES } from './index';
+import { ALL_SCALES, DEMOGRAPHICS_QUESTIONS } from './index';
 import i18n from '@/i18n';
 
 // 加载国际化资源
@@ -65,36 +65,16 @@ function getLocalizedQuestion(question: Question, scaleTranslations: any): Quest
  * @returns 国际化后的选项
  */
 function getLocalizedOption(option: QuestionOption): QuestionOption {
-  // 获取当前语言的翻译资源
-  const translations = i18n.language === 'zh' ? zhScales : enScales;
-  
-  // 根据选项值查找对应的标签
-  let label = option.label;
-  
-  // 检查是否是李克特量表选项
-  if (Object.values(translations.options.likert).includes(option.label)) {
-    // 查找对应的值
-    const entry = Object.entries(translations.options.likert).find(([key, value]) => value === option.label);
-    if (entry) {
-      const [valueKey] = entry;
-      label = translations.options.likert[valueKey] || option.label;
-    }
+  // 根据当前语言选择标签
+  if (i18n.language === 'en' && option.enLabel) {
+    return {
+      ...option,
+      label: option.enLabel
+    };
   }
   
-  // 检查是否是频率选项
-  if (Object.values(translations.options.frequency).includes(option.label)) {
-    // 查找对应的值
-    const entry = Object.entries(translations.options.frequency).find(([key, value]) => value === option.label);
-    if (entry) {
-      const [valueKey] = entry;
-      label = translations.options.frequency[valueKey] || option.label;
-    }
-  }
-
-  return {
-    ...option,
-    label
-  };
+  // 对于中文或其他情况，使用原始标签
+  return option;
 }
 
 /**
@@ -106,17 +86,18 @@ export function getLocalizedDemographicsQuestions() {
   const translations = i18n.language === 'zh' ? zhScales : enScales;
   const demoTranslations = translations.demographics;
 
-  // 导入原始的人口学问题
-  const { DEMOGRAPHICS_QUESTIONS } = require('./index');
-
   return DEMOGRAPHICS_QUESTIONS.map((question: any) => {
     // 获取问题文本的翻译
-    const questionText = demoTranslations.questions?.[question.id] || question.text;
+    const questionText = i18n.language === 'en' ? 
+      (demoTranslations.questions?.[question.id] || question.enText || question.text) : 
+      (question.text);
 
     // 获取选项的翻译
     const localizedOptions = question.options.map((option: any) => {
-      // 获取选项标签的翻译
-      const optionLabel = demoTranslations.options?.[question.id]?.[option.value] || option.label;
+      // 根据当前语言选择标签
+      const optionLabel = i18n.language === 'en' ? 
+        (option.enLabel || option.label) : 
+        (option.label);
       
       return {
         ...option,

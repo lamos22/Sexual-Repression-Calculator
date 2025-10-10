@@ -1,5 +1,7 @@
 # 性压抑指数计算器 (Sexual Repression Index Calculator)
 
+[English Version](README_EN.md)
+
 🧠 **基于科学研究的专业性心理健康评估工具**
 
 ## 项目概述
