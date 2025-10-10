@@ -63,5 +63,3 @@ function Calendar({
     />
   )
 }
-
-export type CalendarProps = {};

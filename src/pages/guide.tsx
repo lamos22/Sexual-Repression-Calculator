@@ -27,6 +27,7 @@ import {
     Target,
     Users
 } from 'lucide-react';
+import LanguageSwitcher from '@/components/common/language-switcher'; // 导入语言切换组件
 
 export default function Guide() {
   const { t } = useTranslation(); // 使用国际化
@@ -55,6 +56,7 @@ export default function Guide() {
               <Link to="/science" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t('navigation.science')}
               </Link>
+              <LanguageSwitcher />
             </div>
           </div>
         </div>

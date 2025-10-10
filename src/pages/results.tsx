@@ -29,9 +29,12 @@ import {
 import {AssessmentSession, SRI_LEVELS, Scale} from '@/types';
 import {diagnoseStorage, downloadAsJSON, getAssessmentSession} from '@/lib/storage';
 import {ALL_SCALES} from '@/lib/scales';
+import {getLocalizedScale} from '@/lib/scales/i18n'; // 添加国际化支持
 import {ShareButtonMobile, ShareResult, SocialShareFloating} from '@/components/common';
 import {useIsMobile} from '@/hooks/use-mobile';
 import {decodeShareData} from '@/lib/share-utils';
+import LanguageSwitcher from '@/components/common/language-switcher'; // 导入语言切换组件
+import { generateInterpretation, generateRecommendations } from '@/lib/calculator'; // 导入生成解释和建议的函数
 
 export default function Results() {
   const { t, i18n } = useTranslation(); // 使用国际化
@@ -300,6 +303,7 @@ export default function Results() {
             </div>
 
             <div className="flex gap-2">
+              <LanguageSwitcher />
               {/* 分享按钮 */}
               {isMobile ? (
                 <ShareButtonMobile session={session} />
@@ -389,14 +393,14 @@ export default function Results() {
             <Separator />
 
             {/* 结果解释 */}
-            {session.results.interpretation && session.results.interpretation.length > 0 && (
+            {session.results && (
               <div>
                 <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
                   <Info className="w-5 h-5 text-psychology-primary" />
                   {t('results.interpretation.title')}
                 </h3>
                 <div className="space-y-2">
-                  {session.results.interpretation.map((text, index) => (
+                  {generateInterpretation(session.results.sri).map((text, index) => (
                     <p key={index} className="text-muted-foreground leading-relaxed">
                       {text}
                     </p>
@@ -406,14 +410,14 @@ export default function Results() {
             )}
 
             {/* 个性化建议 */}
-            {session.results.recommendations && session.results.recommendations.length > 0 && (
+            {session.results && (
               <div>
                 <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
                   <Shield className="w-5 h-5 text-psychology-accent" />
                   {t('results.recommendations.title')}
                 </h3>
                 <div className="grid gap-3">
-                  {session.results.recommendations.map((text, index) => (
+                  {generateRecommendations(session.results.sri).map((text, index) => (
                     <div key={index} className="flex items-start gap-3 p-3 bg-psychology-primary/5 rounded-lg">
                       <CheckCircle className="w-5 h-5 text-psychology-primary mt-0.5 flex-shrink-0" />
                       <p className="text-muted-foreground">{text}</p>
@@ -463,19 +467,19 @@ export default function Results() {
                 </h3>
                 <div className="space-y-3">
                   {sri.scaleScores.map((scaleScore, index) => {
-                    // 查找量表信息
+                    // 查找量表信息并进行国际化处理
                     const scaleId = scaleScore.scaleId;
-                    const scale = ALL_SCALES[scaleId as keyof typeof ALL_SCALES];
+                    const localizedScale = getLocalizedScale(scaleId);
                     return (
                       <Card key={index} className="border-psychology-secondary/10">
                         <CardContent className="p-4">
                           <div className="flex justify-between items-center mb-2">
                             <div>
                               <h4 className="font-medium text-foreground">
-                                {scale ? scale.name : scaleId}
+                                {localizedScale ? localizedScale.name : scaleId}
                               </h4>
                               <p className="text-xs text-muted-foreground">
-                                {scale ? scale.description : ''}
+                                {localizedScale ? localizedScale.description : ''}
                               </p>
                             </div>
                             <div className="text-right">
