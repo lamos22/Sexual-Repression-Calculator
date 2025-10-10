@@ -8,7 +8,7 @@ import {Progress} from '@/components/ui/progress';
 import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader,} from '@/components/ui/dialog';
 import {AlertCircle, ArrowLeft, ArrowUp, BarChart3, CheckCircle, ChevronLeft, ChevronRight} from 'lucide-react';
 import {Demographics, Question, Response} from '@/types';
-import {ALL_SCALES, getAdaptiveFullScales, getAdaptiveScales, getUserGroupDescription, getUserGroupDescriptionEn} from '@/lib/scales';
+import {ALL_SCALES, getAdaptiveFullScales, getAdaptiveScales, getUserGroupDescription} from '@/lib/scales';
 import { getLocalizedScale } from '@/lib/scales/i18n'; // 添加国际化支持
 import { useTranslation } from 'react-i18next'; // 添加国际化支持
 
@@ -148,7 +148,7 @@ export function QuestionnaireList({
   };
 
   const scaleIds = getScalesForUser();
-  const userGroup = i18n.language === 'en' ? getUserGroupDescriptionEn(demographics) : getUserGroupDescription(demographics);
+  const userGroup = getUserGroupDescription(demographics);
   
   // 显示选中的量表信息
   console.log(`用户群体: ${userGroup}, 选中量表:`, scaleIds);

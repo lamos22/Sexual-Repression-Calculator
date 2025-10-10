@@ -5,6 +5,7 @@
 
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // 添加国际化支持
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
 import {Badge} from '@/components/ui/badge';
@@ -46,6 +47,7 @@ import {
 import {formatDemographicsForDisplay} from '@/lib/demographics-utils';
 
 export default function History() {
+  const { t, i18n } = useTranslation(); // 使用国际化
   const [sessions, setSessions] = useState<AssessmentSession[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -55,7 +57,7 @@ export default function History() {
       const allSessions = getAllAssessmentSessions();
       setSessions(allSessions);
     } catch (error) {
-      console.error('加载历史记录失败:', error);
+      console.error(t('history.error.loading'), error);
     } finally {
       setLoading(false);
     }
@@ -67,7 +69,7 @@ export default function History() {
       deleteAssessmentSession(sessionId);
       setSessions(prev => prev.filter(s => s.id !== sessionId));
     } catch (error) {
-      console.error('删除记录失败:', error);
+      console.error(t('history.error.deleting'), error);
     }
   };
 
@@ -77,7 +79,7 @@ export default function History() {
       clearAllSessions();
       setSessions([]);
     } catch (error) {
-      console.error('清除所有记录失败:', error);
+      console.error(t('history.error.clearing'), error);
     }
   };
 
@@ -88,12 +90,12 @@ export default function History() {
       const timestamp = new Date().toISOString().split('T')[0];
       
       if (format === 'json') {
-        downloadAsJSON(data, `sri-assessment-history-${timestamp}.json`);
+        downloadAsJSON(data, `${t('history.export.filename')}-${timestamp}.json`);
       } else {
-        downloadAsCSV(data, `sri-assessment-history-${timestamp}.csv`);
+        downloadAsCSV(data, `${t('history.export.filename')}-${timestamp}.csv`);
       }
     } catch (error) {
-      console.error('导出数据失败:', error);
+      console.error(t('history.error.exporting'), error);
     }
   };
 
@@ -123,7 +125,7 @@ export default function History() {
       <div className="min-h-screen bg-gradient-to-b from-psychology-calm to-psychology-warm flex items-center justify-center">
         <div className="text-center">
           <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-psychology-primary" />
-          <p className="text-lg text-muted-foreground">加载历史记录...</p>
+          <p className="text-lg text-muted-foreground">{t('common.loading')}</p>
         </div>
       </div>
     );
@@ -140,14 +142,14 @@ export default function History() {
                 <Clock className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">测评历史</h1>
-                <p className="text-sm text-muted-foreground">查看和管理您的评估记录</p>
+                <h1 className="text-2xl font-bold text-foreground">{t('history.title')}</h1>
+                <p className="text-sm text-muted-foreground">{t('history.subtitle')}</p>
               </div>
             </div>
             <Button asChild variant="outline">
               <Link to="/" className="flex items-center gap-2">
                 <Home className="w-4 h-4" />
-                返回首页
+                {t('navigation.home')}
               </Link>
             </Button>
           </div>
@@ -161,21 +163,21 @@ export default function History() {
             <div className="w-24 h-24 bg-psychology-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <AlertCircle className="w-12 h-12 text-psychology-primary" />
             </div>
-            <h2 className="text-2xl font-semibold text-foreground mb-4">暂无测评记录</h2>
+            <h2 className="text-2xl font-semibold text-foreground mb-4">{t('history.empty.title')}</h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-              您还没有完成任何测评。开始您的第一次性压抑指数评估，探索更深层的自我认知。
+              {t('history.empty.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-psychology-primary hover:bg-psychology-primary/90">
                 <Link to="/assessment?type=quick" className="flex items-center gap-2">
                   <BarChart3 className="w-5 h-5" />
-                  开始快测版
+                  {t('home.quickStart')}
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/assessment?type=full" className="flex items-center gap-2">
                   <FileText className="w-5 h-5" />
-                  开始完整版
+                  {t('home.fullVersion')}
                 </Link>
               </Button>
             </div>
@@ -188,7 +190,7 @@ export default function History() {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground">总测评次数</p>
+                      <p className="text-sm text-muted-foreground">{t('history.stats.total')}</p>
                       <p className="text-2xl font-bold text-psychology-primary">{stats.total}</p>
                     </div>
                     <Calendar className="w-8 h-8 text-psychology-primary/60" />
@@ -200,7 +202,7 @@ export default function History() {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground">完成测评</p>
+                      <p className="text-sm text-muted-foreground">{t('history.stats.completed')}</p>
                       <p className="text-2xl font-bold text-psychology-success">{stats.completed}</p>
                     </div>
                     <BarChart3 className="w-8 h-8 text-psychology-success/60" />
@@ -212,7 +214,7 @@ export default function History() {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground">平均SRI指数</p>
+                      <p className="text-sm text-muted-foreground">{t('history.stats.average')}</p>
                       <p className="text-2xl font-bold text-psychology-accent">{stats.avgScore}</p>
                     </div>
                     <TrendingUp className="w-8 h-8 text-psychology-accent/60" />
@@ -224,10 +226,10 @@ export default function History() {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground">测评类型</p>
+                      <p className="text-sm text-muted-foreground">{t('history.stats.types')}</p>
                       <p className="text-sm">
-                        <span className="text-psychology-primary font-semibold">{stats.quick}</span> 快测 / 
-                        <span className="text-psychology-secondary font-semibold">{stats.full}</span> 完整
+                        <span className="text-psychology-primary font-semibold">{stats.quick}</span> {t('assessment.type.quick')} / 
+                        <span className="text-psychology-secondary font-semibold">{stats.full}</span> {t('assessment.type.full')}
                       </p>
                     </div>
                     <Users className="w-8 h-8 text-muted-foreground/60" />
@@ -241,7 +243,7 @@ export default function History() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Download className="w-5 h-5" />
-                  数据管理
+                  {t('history.management.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -252,7 +254,7 @@ export default function History() {
                     className="flex items-center gap-2"
                   >
                     <Download className="w-4 h-4" />
-                    导出JSON
+                    {t('history.management.exportJson')}
                   </Button>
                   <Button 
                     onClick={() => handleExportAll('csv')}
@@ -260,26 +262,26 @@ export default function History() {
                     className="flex items-center gap-2"
                   >
                     <Download className="w-4 h-4" />
-                    导出CSV
+                    {t('history.management.exportCsv')}
                   </Button>
                   
                   <AlertDialog>
                     <AlertDialogTrigger asChild>
                       <Button variant="destructive" className="flex items-center gap-2">
                         <Trash2 className="w-4 h-4" />
-                        清除所有记录
+                        {t('history.management.clearAll')}
                       </Button>
                     </AlertDialogTrigger>
                     <AlertDialogContent>
                       <AlertDialogHeader>
-                        <AlertDialogTitle>确认清除所有记录</AlertDialogTitle>
+                        <AlertDialogTitle>{t('history.management.confirmClear.title')}</AlertDialogTitle>
                         <AlertDialogDescription>
-                          此操作将永久删除所有测评历史记录，无法恢复。您确定要继续吗？
+                          {t('history.management.confirmClear.description')}
                         </AlertDialogDescription>
                       </AlertDialogHeader>
                       <AlertDialogFooter>
-                        <AlertDialogCancel>取消</AlertDialogCancel>
-                        <AlertDialogAction onClick={handleClearAll}>确认删除</AlertDialogAction>
+                        <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
+                        <AlertDialogAction onClick={handleClearAll}>{t('common.confirm')}</AlertDialogAction>
                       </AlertDialogFooter>
                     </AlertDialogContent>
                   </AlertDialog>
@@ -291,7 +293,7 @@ export default function History() {
             <div className="space-y-4">
               <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
                 <FileText className="w-5 h-5" />
-                测评记录
+                {t('history.records.title')}
               </h2>
               
               {sessions.map((session) => {
@@ -319,20 +321,20 @@ export default function History() {
                                     : 'bg-psychology-secondary text-white'
                                   }
                                 >
-                                  {session.type === 'quick' ? '快测版' : '完整版'}
+                                  {session.type === 'quick' ? t('assessment.type.quick') : t('assessment.type.full')}
                                 </Badge>
                                 {session.completed ? (
                                   <Badge variant="outline" className="text-psychology-success border-psychology-success">
-                                    已完成
+                                    {t('history.records.completed')}
                                   </Badge>
                                 ) : (
                                   <Badge variant="outline" className="text-psychology-warning border-psychology-warning">
-                                    未完成
+                                    {t('history.records.incomplete')}
                                   </Badge>
                                 )}
                               </div>
                               <p className="text-sm text-muted-foreground">
-                                {session.startTime.toLocaleString('zh-CN', {
+                                {session.startTime.toLocaleString(i18n.language === 'zh' ? 'zh-CN' : 'en-US', {
                                   year: 'numeric',
                                   month: 'long',
                                   day: 'numeric',
@@ -342,16 +344,54 @@ export default function History() {
                               </p>
                               {duration && (
                                 <p className="text-xs text-muted-foreground mt-1">
-                                  用时：{duration} 分钟
+                                  {t('history.records.duration', { minutes: duration })}
                                 </p>
                               )}
+                            </div>
+                            
+                            <div className="flex gap-2">
+                              {session.completed && session.results ? (
+                                <Button asChild size="sm" variant="outline">
+                                  <Link to={`/results?sessionId=${session.id}`}>
+                                    <Eye className="w-4 h-4 mr-1" />
+                                    {t('history.records.view')}
+                                  </Link>
+                                </Button>
+                              ) : (
+                                <Button asChild size="sm" variant="outline">
+                                  <Link to={`/assessment?type=${session.type}`}>
+                                    {t('history.records.continue')}
+                                  </Link>
+                                </Button>
+                              )}
+                              <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                  <Button size="sm" variant="outline">
+                                    <Trash2 className="w-4 h-4" />
+                                  </Button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent>
+                                  <AlertDialogHeader>
+                                    <AlertDialogTitle>{t('history.records.confirmDelete.title')}</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                      {t('history.records.confirmDelete.description')}
+                                    </AlertDialogDescription>
+                                  </AlertDialogHeader>
+                                  <AlertDialogFooter>
+                                    <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
+                                    <AlertDialogAction onClick={() => handleDeleteSession(session.id)}>
+                                      {t('common.delete')}
+                                    </AlertDialogAction>
+                                  </AlertDialogFooter>
+                                </AlertDialogContent>
+                              </AlertDialog>
                             </div>
                           </div>
                           
                           <div className="text-sm text-muted-foreground space-y-1">
-                            <p>年龄：{formattedDemographics.age}</p>
-                            <p>性别：{formattedDemographics.gender}</p>
-                            <p>关系状态：{formattedDemographics.relationshipStatus}</p>
+                            <p>{t('assessment.demographics.age')}: {formattedDemographics.age}</p>
+                            <p>{t('assessment.demographics.gender.label')}: {formattedDemographics.gender}</p>
+                            <p>{t('assessment.demographics.relationship.label')}: {formattedDemographics.relationshipStatus}</p>
                           </div>
                         </div>
                         
@@ -363,13 +403,13 @@ export default function History() {
                                 <div className="text-3xl font-bold text-psychology-primary mb-1">
                                   {session.results.sri.totalScore}
                                 </div>
-                                <div className="text-xs text-muted-foreground">SRI 指数</div>
+                                <div className="text-xs text-muted-foreground">{t('results.sriIndex')}</div>
                               </div>
                               <Badge 
                                 variant="outline" 
                                 className={`text-${sriInfo.color} border-${sriInfo.color}`}
                               >
-                                {sriInfo.label}
+                                {t(`results.level.${sriInfo.level.replace('-', '')}`)}
                               </Badge>
                               <div className="mt-3">
                                 <Progress 
@@ -381,7 +421,7 @@ export default function History() {
                           ) : (
                             <div className="text-center text-muted-foreground">
                               <AlertCircle className="w-8 h-8 mx-auto mb-2" />
-                              <p className="text-sm">测评未完成</p>
+                              <p className="text-sm">{t('history.records.incomplete')}</p>
                             </div>
                           )}
                         </div>
@@ -397,7 +437,7 @@ export default function History() {
                               >
                                 <Link to={`/results?sessionId=${session.id}`}>
                                   <Eye className="w-4 h-4" />
-                                  查看结果
+                                  {t('history.records.view')}
                                 </Link>
                               </Button>
                             ) : (
@@ -409,35 +449,29 @@ export default function History() {
                               >
                                 <Link to={`/assessment?type=${session.type}`}>
                                   <RefreshCw className="w-4 h-4" />
-                                  继续测评
+                                  {t('history.records.continue')}
                                 </Link>
                               </Button>
                             )}
                             
                             <AlertDialog>
                               <AlertDialogTrigger asChild>
-                                <Button 
-                                  size="sm" 
-                                  variant="ghost" 
-                                  className="flex items-center gap-2 text-destructive hover:text-destructive"
-                                >
+                                <Button size="sm" variant="outline" className="flex items-center gap-2">
                                   <Trash2 className="w-4 h-4" />
-                                  删除
+                                  {t('common.delete')}
                                 </Button>
                               </AlertDialogTrigger>
                               <AlertDialogContent>
                                 <AlertDialogHeader>
-                                  <AlertDialogTitle>确认删除记录</AlertDialogTitle>
+                                  <AlertDialogTitle>{t('history.records.confirmDelete.title')}</AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    确定要删除这条测评记录吗？此操作无法撤销。
+                                    {t('history.records.confirmDelete.description')}
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
-                                  <AlertDialogCancel>取消</AlertDialogCancel>
-                                  <AlertDialogAction 
-                                    onClick={() => handleDeleteSession(session.id)}
-                                  >
-                                    确认删除
+                                  <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
+                                  <AlertDialogAction onClick={() => handleDeleteSession(session.id)}>
+                                    {t('common.confirm')}
                                   </AlertDialogAction>
                                 </AlertDialogFooter>
                               </AlertDialogContent>

@@ -1,8 +1,3 @@
-/**
- * 单题卡片组件 - 展示单个问卷题目和选项
- * 提供清晰的交互界面和视觉反馈
- */
-
 import React, {useState} from 'react';
 import {Card, CardContent} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
@@ -12,6 +7,7 @@ import {Badge} from '@/components/ui/badge';
 import {AlertCircle, SkipForward} from 'lucide-react';
 import {Question, QuestionOption, Response} from '@/types';
 import {ALL_SCALES} from '@/lib/scales';
+import { getLocalizedScale } from '@/lib/scales/i18n'; // 添加国际化支持
 
 interface QuestionCardProps {
   question: Question;
@@ -37,8 +33,9 @@ export function QuestionCard({
   );
   const [showValidation, setShowValidation] = useState(false);
 
-  // 获取量表信息
-  const scale = ALL_SCALES[question.scale];
+  // 获取国际化后的量表信息
+  const localizedScale = getLocalizedScale(question.scale);
+  const scale = localizedScale || ALL_SCALES[question.scale];
   const scaleName = scale?.name || question.scale;
 
   const handleValueChange = (value: string) => {
@@ -88,7 +85,8 @@ export function QuestionCard({
             </div>
             {question.required && (
               <Badge variant="destructive" className="text-xs">
-                必答
+                {/* 国际化必答题标签 */}
+                {question.required ? (localStorage.getItem('language') === 'en' ? 'Required' : '必答') : ''}
               </Badge>
             )}
           </div>
@@ -151,7 +149,9 @@ export function QuestionCard({
           {showValidation && question.required && !selectedValue && (
             <div className="flex items-center gap-2 mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
               <AlertCircle className="w-4 h-4 text-red-500" />
-              <span className="text-sm text-red-600">请选择一个选项后继续</span>
+              <span className="text-sm text-red-600">
+                {localStorage.getItem('language') === 'en' ? 'Please select an option to continue' : '请选择一个选项后继续'}
+              </span>
             </div>
           )}
 
@@ -165,7 +165,7 @@ export function QuestionCard({
                 className="text-muted-foreground hover:text-foreground"
               >
                 <SkipForward className="w-4 h-4 mr-2" />
-                跳过此题
+                {localStorage.getItem('language') === 'en' ? 'Skip this question' : '跳过此题'}
               </Button>
             </div>
           )}
@@ -174,7 +174,7 @@ export function QuestionCard({
           {selectedValue && (
             <div className="mt-6 p-3 bg-green-50 border border-green-200 rounded-lg text-center">
               <p className="text-sm text-green-600 font-medium">
-                ✓ 已选择答案，请点击"下一题"继续
+                {localStorage.getItem('language') === 'en' ? '✓ Answer selected, please click "Next" to continue' : '✓ 已选择答案，请点击"下一题"继续'}
               </p>
             </div>
           )}
@@ -182,7 +182,9 @@ export function QuestionCard({
           {/* 底部说明 */}
           <div className="mt-6 pt-4 border-t border-muted text-center">
             <p className="text-xs text-muted-foreground">
-              请根据您的真实感受选择最符合的选项。您的回答将被严格保密。
+              {localStorage.getItem('language') === 'en' ? 
+                'Please select the option that best matches your true feelings. Your responses will be kept strictly confidential.' : 
+                '请根据您的真实感受选择最符合的选项。您的回答将被严格保密。'}
             </p>
           </div>
         </CardContent>

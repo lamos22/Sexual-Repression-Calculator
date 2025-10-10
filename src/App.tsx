@@ -3,6 +3,7 @@ import {Toaster} from "@/components/ui/sonner";
 import {TooltipProvider} from "@/components/ui/tooltip";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import Index from "./pages/home";
 import Assessment from "./pages/assessment";
 import Results from "./pages/results";
