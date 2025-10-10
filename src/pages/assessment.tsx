@@ -26,6 +26,7 @@ import {saveAssessmentSession} from '@/lib/storage';
 import {ConsentForm} from '@/components/assessment/consent-form';
 import {DemographicsForm} from '@/components/assessment/demographics-form';
 import {QuestionnaireSection} from '@/components/assessment/questionnaire-section';
+import LanguageSwitcher from '@/components/common/language-switcher'; // 导入语言切换组件
 
 type AssessmentStep = 'consent' | 'demographics' | 'questionnaire' | 'processing' | 'completed';
 
@@ -396,27 +397,30 @@ const handleProgressDialogOpenChange = (open: boolean) => {
               </div>
             </div>
 
-            {currentStep !== 'processing' && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleBack}
-                className="text-muted-foreground hidden sm:flex"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                {t('common.back')}
-              </Button>
-            )}
-            {currentStep !== 'processing' && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleBack}
-                className="text-muted-foreground sm:hidden"
-              >
-                <ArrowLeft className="w-4 h-4" />
-              </Button>
-            )}
+            <div className="flex gap-2">
+              <LanguageSwitcher />
+              {currentStep !== 'processing' && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleBack}
+                  className="text-muted-foreground hidden sm:flex"
+                >
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  {t('common.back')}
+                </Button>
+              )}
+              {currentStep !== 'processing' && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleBack}
+                  className="text-muted-foreground sm:hidden"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                </Button>
+              )}
+            </div>
           </div>
 
           {/* 总体进度条 */}

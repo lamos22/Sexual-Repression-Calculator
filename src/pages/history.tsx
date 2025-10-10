@@ -45,6 +45,7 @@ import {
     getAllAssessmentSessions
 } from '@/lib/storage';
 import {formatDemographicsForDisplay} from '@/lib/demographics-utils';
+import LanguageSwitcher from '@/components/common/language-switcher'; // 导入语言切换组件
 
 export default function History() {
   const { t, i18n } = useTranslation(); // 使用国际化
@@ -146,12 +147,15 @@ export default function History() {
                 <p className="text-sm text-muted-foreground">{t('history.subtitle')}</p>
               </div>
             </div>
-            <Button asChild variant="outline">
-              <Link to="/" className="flex items-center gap-2">
-                <Home className="w-4 h-4" />
-                {t('navigation.home')}
-              </Link>
-            </Button>
+            <div className="flex gap-2">
+              <LanguageSwitcher />
+              <Button asChild variant="outline">
+                <Link to="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  {t('navigation.home')}
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

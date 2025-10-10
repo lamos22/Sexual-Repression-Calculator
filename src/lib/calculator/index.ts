@@ -5,6 +5,7 @@
 
 import {AssessmentResults, DimensionScores, NormativeData, Response, ScaleScore, SRI_LEVELS, SRIResult} from '@/types';
 import {ALL_SCALES} from '@/lib/scales';
+import i18n from '@/i18n'; // 导入i18n实例以支持国际化
 
 /**
  * 标准正态分布累积分布函数 (CDF)
@@ -385,21 +386,54 @@ export function calculateAssessmentResults(
  * @returns 解释文案数组
  */
 function generateInterpretation(sri: SRIResult): string[] {
+  // 根据当前语言环境选择相应的文本
+  const isEnglish = i18n.language === 'en';
+  
   const level = SRI_LEVELS[sri.level];
-  const interpretation = [
-    `您的性压抑指数为 ${sri.totalScore} 分，处于「${level.label}」水平。`,
-    `这表明您在性相关的心理体验方面${getInterpretationByLevel(sri.level)}。`
-  ];
+  
+  // 定义英文标签
+  const enLabels: Record<keyof typeof SRI_LEVELS, string> = {
+    'very-low': 'Very Low (Less repression)',
+    'low': 'Low',
+    'moderate': 'Moderate',
+    'high': 'High',
+    'very-high': 'Very High'
+  };
+  
+  let interpretation: string[];
+  if (isEnglish) {
+    interpretation = [
+      `Your Sexual Repression Index is ${sri.totalScore} points, at the "${enLabels[sri.level]}" level.`,
+      `This indicates that you ${getInterpretationByLevel(sri.level, isEnglish)} in terms of sexual psychological experiences.`
+    ];
+  } else {
+    interpretation = [
+      `您的性压抑指数为 ${sri.totalScore} 分，处于「${level.label}」水平。`,
+      `这表明您在性相关的心理体验方面${getInterpretationByLevel(sri.level, isEnglish)}。`
+    ];
+  }
   
   // 添加维度分析
-  const highDimensions = [];
-  if (sri.dimensionScores.sosReversed > 1) highDimensions.push('对性刺激的回避倾向');
-  if (sri.dimensionScores.sexGuilt > 1) highDimensions.push('性相关内疚感');
-  if (sri.dimensionScores.sexualShame > 1) highDimensions.push('性羞耻体验');
-  if (sri.dimensionScores.sisOverSes > 1) highDimensions.push('性抑制相对优势');
+  const highDimensions: string[] = [];
+  if (sri.dimensionScores.sosReversed > 1) {
+    highDimensions.push(isEnglish ? 'avoidance tendency toward sexual stimuli' : '对性刺激的回避倾向');
+  }
+  if (sri.dimensionScores.sexGuilt > 1) {
+    highDimensions.push(isEnglish ? 'sexual guilt' : '性相关内疚感');
+  }
+  if (sri.dimensionScores.sexualShame > 1) {
+    highDimensions.push(isEnglish ? 'sexual shame experience' : '性羞耻体验');
+  }
+  if (sri.dimensionScores.sisOverSes > 1) {
+    highDimensions.push(isEnglish ? 'sexual inhibition relative advantage' : '性抑制相对优势');
+  }
   
   if (highDimensions.length > 0) {
-    interpretation.push(`在以下维度上得分较高：${highDimensions.join('、')}。`);
+    if (isEnglish) {
+      interpretation.push(`You scored high on the following dimensions: ${highDimensions.join(', ')}.`);
+    } else {
+      interpretation.push(`在以下维度上得分较高：${highDimensions.join('、')}。`);
+    }
   }
   
   return interpretation;
@@ -408,8 +442,14 @@ function generateInterpretation(sri: SRIResult): string[] {
 /**
  * 根据等级生成解释描述
  */
-function getInterpretationByLevel(level: keyof typeof SRI_LEVELS): string {
-  const descriptions = {
+function getInterpretationByLevel(level: keyof typeof SRI_LEVELS, isEnglish: boolean = false): string {
+  const descriptions: Record<string, string> = isEnglish ? {
+    'very-low': 'show little sexual repression and are relatively open and accepting of sexual content and experiences',
+    'low': 'have relatively healthy sexual psychology with low levels of repression',
+    'moderate': 'are within the normal range, neither overly repressed nor overly open',
+    'high': 'have a certain degree of sexual repression, which may affect sexual experiences and intimate relationships',
+    'very-high': 'have significant sexual repression and are advised to seek help from a professional psychological counselor'
+  } : {
     'very-low': '表现出较少的性压抑，对性相关内容和体验相对开放和接受',
     'low': '在性心理方面相对健康，压抑程度较低',
     'moderate': '处于正常范围内，既不过分压抑也不过分开放',
@@ -426,28 +466,54 @@ function getInterpretationByLevel(level: keyof typeof SRI_LEVELS): string {
  * @returns 建议文案数组
  */
 function generateRecommendations(sri: SRIResult): string[] {
-  const recommendations = [];
+  const recommendations: string[] = [];
+  const isEnglish = i18n.language === 'en';
   
   if (sri.level === 'very-high' || sri.level === 'high') {
-    recommendations.push('考虑与专业的性治疗师或心理咨询师交流，探讨性心理健康话题。');
-    recommendations.push('尝试阅读一些关于性健康和性心理的科学读物，增进对性的科学认知。');
+    if (isEnglish) {
+      recommendations.push('Consider communicating with a professional sex therapist or psychological counselor to explore topics related to sexual mental health.');
+      recommendations.push('Try reading some scientific literature about sexual health and sexual psychology to enhance your scientific understanding of sex.');
+    } else {
+      recommendations.push('考虑与专业的性治疗师或心理咨询师交流，探讨性心理健康话题。');
+      recommendations.push('尝试阅读一些关于性健康和性心理的科学读物，增进对性的科学认知。');
+    }
   }
   
   if (sri.dimensionScores.sexGuilt > 1) {
-    recommendations.push('探索性内疚感的来源，可能与文化背景、家庭教育或宗教信念相关。');
+    if (isEnglish) {
+      recommendations.push('Explore the sources of sexual guilt, which may be related to cultural background, family education, or religious beliefs.');
+    } else {
+      recommendations.push('探索性内疚感的来源，可能与文化背景、家庭教育或宗教信念相关。');
+    }
   }
   
   if (sri.dimensionScores.sexualShame > 1) {
-    recommendations.push('练习自我接纳和身体正念，建立与自己身体的积极关系。');
+    if (isEnglish) {
+      recommendations.push('Practice self-acceptance and body mindfulness to build a positive relationship with your body.');
+    } else {
+      recommendations.push('练习自我接纳和身体正念，建立与自己身体的积极关系。');
+    }
   }
   
   if (sri.dimensionScores.sisOverSes > 1) {
-    recommendations.push('学习放松技巧和正念练习，减少性焦虑和过度控制。');
+    if (isEnglish) {
+      recommendations.push('Learn relaxation techniques and mindfulness practices to reduce sexual anxiety and over-control.');
+    } else {
+      recommendations.push('学习放松技巧和正念练习，减少性焦虑和过度控制。');
+    }
   }
   
   // 通用建议
-  recommendations.push('与信任的伴侣或朋友开放地讨论性话题，减少孤立感。');
-  recommendations.push('记住这不是诊断工具，结果仅供自我了解和反思使用。');
+  if (isEnglish) {
+    recommendations.push('Discuss sexual topics openly with trusted partners or friends to reduce feelings of isolation.');
+    recommendations.push('Remember that this is not a diagnostic tool, and the results are for self-understanding and reflection only.');
+  } else {
+    recommendations.push('与信任的伴侣或朋友开放地讨论性话题，减少孤立感。');
+    recommendations.push('记住这不是诊断工具，结果仅供自我了解和反思使用。');
+  }
   
   return recommendations;
 }
+
+// 导出生成解释和建议的函数
+export { generateInterpretation, generateRecommendations };
