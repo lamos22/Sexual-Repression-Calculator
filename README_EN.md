@@ -1,6 +1,6 @@
 # Sexual Repression Index Calculator
 
-[中文版本](README.md)
+English | [简体中文](./README.md)
 
 🧠 **Professional Sexual Mental Health Assessment Tool Based on Scientific Research**
 
