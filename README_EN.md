@@ -131,6 +131,31 @@ Vercel deployment does not require special environment variable configuration, b
 
 ~~Note: Due to Vercel's architectural limitations, the redirect page mechanism may not work properly, it is recommended to use the popup reminder mechanism.~~
 
+## 🎩 Hat Cloud Deployment
+
+This project also supports deployment to Hat Cloud platform.
+
+### Deployment Configuration
+
+- **Build command**: `npm run build`
+- **Output directory**: `dist/web`
+
+### Deployment Steps
+
+1. Push code to GitHub repository
+2. Create an application in Hat Cloud platform
+3. Connect GitHub repository
+4. Select `main` branch
+5. Configure build settings:
+   - Build command: `npm run build`
+   - Output directory: `dist/web`
+6. Click Deploy
+
+### Notes
+
+- When deploying on Hat Cloud platform, please note that the output directory should be set to `dist/web` instead of the default `dist`
+- If you encounter a 404 error, please check that the platform's output directory configuration is correctly set to `dist/web`
+
 ## 📋 Function Description
 
 ### Assessment Versions
