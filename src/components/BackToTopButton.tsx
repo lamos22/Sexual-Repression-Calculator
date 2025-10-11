@@ -20,7 +20,7 @@ export default function BackToTopButton() {
   return (
     <div
       // 固定右下角，层级极高，保证覆盖掉评测页面内旧按钮
-      className={`fixed bottom-6 right-6 z-[9999] transition-opacity duration-300 ${
+      className={`fixed bottom-24 right-6 z-[9999] transition-opacity duration-300 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
@@ -28,7 +28,7 @@ export default function BackToTopButton() {
         onClick={scrollToTop}
         aria-label="回到顶部"
         className="w-12 h-12 rounded-full 
-                   bg-psychology-primary text-white 
+                   bg-gradient-to-r from-blue-500 to-purple-600 text-white 
                    shadow-lg hover:shadow-xl 
                    flex items-center justify-center 
                    transition-all duration-300 ease-out 

@@ -5,6 +5,7 @@
 
 import React, {useEffect, useRef, useState} from 'react';
 import {useNavigate, useSearchParams} from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // 添加国际化支持
 import {Card} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
 import {Progress} from '@/components/ui/progress';
@@ -25,10 +26,12 @@ import {saveAssessmentSession} from '@/lib/storage';
 import {ConsentForm} from '@/components/assessment/consent-form';
 import {DemographicsForm} from '@/components/assessment/demographics-form';
 import {QuestionnaireSection} from '@/components/assessment/questionnaire-section';
+import LanguageSwitcher from '@/components/common/language-switcher'; // 导入语言切换组件
 
 type AssessmentStep = 'consent' | 'demographics' | 'questionnaire' | 'processing' | 'completed';
 
 export default function Assessment() {
+  const { t, i18n } = useTranslation(); // 使用国际化
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   
@@ -350,10 +353,10 @@ const handleProgressDialogOpenChange = (open: boolean) => {
         <AlertDialogContent className="max-w-[calc(100%-2rem)] sm:max-w-sm rounded-xl p-6 space-y-6">
           <AlertDialogHeader className="space-y-3 text-center">
             <AlertDialogTitle className="text-xl font-semibold">
-              检测到未完成的评估
+              {t('assessment.progressDialog.title')}
             </AlertDialogTitle>
             <AlertDialogDescription className="text-sm text-muted-foreground">
-              检测到本地保存的未完成评估，已回答 {pendingProgress?.responses.length ?? 0} 道题。请选择继续作答或重新开始。
+              {t('assessment.progressDialog.description', { count: pendingProgress?.responses.length ?? 0 })}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter className="sm:justify-center gap-2">
@@ -361,13 +364,13 @@ const handleProgressDialogOpenChange = (open: boolean) => {
               onClick={handleDiscardProgress}
               className="w-full sm:w-auto transition-transform hover:scale-[1.02]"
             >
-              重新开始
+              {t('assessment.progressDialog.restart')}
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={handleContinueProgress}
               className="w-full sm:w-auto bg-psychology-primary hover:bg-psychology-primary/90 transition-transform hover:scale-[1.02]"
             >
-              继续作答
+              {t('assessment.progressDialog.continue')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -384,44 +387,47 @@ const handleProgressDialogOpenChange = (open: boolean) => {
                 className="text-muted-foreground hover:text-foreground"
               >
                 <Home className="w-4 h-4 mr-2" />
-                首页
+                {t('navigation.home')}
               </Button>
               <div className="flex items-center gap-2">
                 <Brain className="w-5 h-5 text-psychology-primary" />
                 <span className="font-semibold text-psychology-primary">
-                  {assessmentType === 'quick' ? '快速测评' : '完整测评'}
+                  {assessmentType === 'quick' ? t('assessment.type.quick') : t('assessment.type.full')}
                 </span>
               </div>
             </div>
 
-            {currentStep !== 'processing' && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleBack}
-                className="text-muted-foreground hidden sm:flex"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                返回
-              </Button>
-            )}
-            {currentStep !== 'processing' && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleBack}
-                className="text-muted-foreground sm:hidden"
-              >
-                <ArrowLeft className="w-4 h-4" />
-              </Button>
-            )}
+            <div className="flex gap-2">
+              <LanguageSwitcher />
+              {currentStep !== 'processing' && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleBack}
+                  className="text-muted-foreground hidden sm:flex"
+                >
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  {t('common.back')}
+                </Button>
+              )}
+              {currentStep !== 'processing' && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleBack}
+                  className="text-muted-foreground sm:hidden"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                </Button>
+              )}
+            </div>
           </div>
 
           {/* 总体进度条 */}
           {currentStep !== 'consent' && (
             <div className="mt-4">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-muted-foreground">整体进度</span>
+                <span className="text-sm text-muted-foreground">{t('assessment.progress.overall')}</span>
                 <span className="text-sm font-medium">{Math.round(getStepProgress())}%</span>
               </div>
               <Progress value={getStepProgress()} className="h-2" />
@@ -473,10 +479,10 @@ const handleProgressDialogOpenChange = (open: boolean) => {
                 
                 <div>
                   <h2 className="text-2xl font-bold text-psychology-primary mb-2">
-                    正在分析您的回答
+                    {t('assessment.processing.title')}
                   </h2>
                   <p className="text-muted-foreground">
-                    我们正在使用科学算法计算您的性压抑指数，请稍候...
+                    {t('assessment.processing.description')}
                   </p>
                 </div>
 
@@ -484,15 +490,15 @@ const handleProgressDialogOpenChange = (open: boolean) => {
                   <Progress value={100} className="h-2" />
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>应用多维度标准化算法</span>
+                    <span>{t('assessment.processing.step1')}</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>生成个性化分析报告</span>
+                    <span>{t('assessment.processing.step2')}</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>保护您的隐私数据</span>
+                    <span>{t('assessment.processing.step3')}</span>
                   </div>
                 </div>
               </div>
@@ -500,24 +506,6 @@ const handleProgressDialogOpenChange = (open: boolean) => {
           </div>
         )}
       </main>
-
-      {/* 底部提示 */}
-      {currentStep === 'questionnaire' && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-muted p-3 sm:p-4">
-          <div className="container mx-auto">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                <AlertTriangle className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="hidden sm:inline">您的所有回答都会安全地保存在本地设备上</span>
-                <span className="sm:hidden">数据安全保存</span>
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">
-                已回答: {responses.length} 题
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -1,5 +1,7 @@
 # 性压抑指数计算器 (Sexual Repression Index Calculator)
 
+简体中文 | [English](./README_EN.md)
+
 🧠 **基于科学研究的专业性心理健康评估工具**
 
 ## 项目概述
@@ -73,6 +75,8 @@ docker run -p 8000:8000 appe233/sexual-repression-calculator
    - 输出目录: `dist`
 5. 点击部署
 
+### [Cloudflare](https://dash.cloudflare.com/) | [在线体验](https://sextest.banlan.qzz.io/)
+
 ### 防滥用功能
 
 为了防止项目被恶意倒卖，本项目提供了两种防滥用机制：
@@ -92,12 +96,70 @@ docker run -p 8000:8000 appe233/sexual-repression-calculator
 
 你可以根据需要选择其中一种或两种机制同时使用。
 
+# ⚠️
+>不使用时建议将functions改名disabled,并注释掉rsbuild.config.cloudflare.ts里面的` { from: "./functions/_middleware.js", to: "_middleware.js" }, `，避免cloudflare每日请求消耗过高
 ### 注意事项
 
 - 此应用是纯静态的 React 应用，所有数据处理都在客户端进行
 - 不需要服务器端 API，所有功能都可以在浏览器中完成
 - 应用使用 localStorage 存储用户数据，数据不会上传到服务器
 - 使用 `--legacy-peer-deps` 参数解决依赖冲突问题
+
+## ▲ Vercel 部署
+
+该项目也支持部署到 Vercel 平台。
+
+### 部署配置
+
+- **构建命令**: `npm run build:vercel`
+- **输出目录**: `dist`
+
+### 部署步骤
+
+1. 将代码推送到 GitHub 仓库
+2. 在 Vercel Dashboard 中导入项目
+3. 配置构建设置：
+   - 构建命令: `npm run build:vercel`
+   - 输出目录: `dist`
+4. 点击部署
+
+### [Vercel](https://vercel.com/) | 在线体验不给
+
+### 环境变量配置
+
+Vercel 部署不需要特殊的环境变量配置，但如果你想启用防滥用功能，可以添加以下环境变量：
+
+~~1. **弹窗提醒机制**：~~
+   ~~- 添加环境变量：`SHOW_ABUSE_POPUP` = `true`~~
+
+~~注意：由于 Vercel 的架构限制，跳转页面机制可能无法正常工作，建议使用弹窗提醒机制。~~
+
+## 🎩 帽子云部署
+
+该项目也支持部署到帽子云平台。
+
+### 部署配置
+
+- **构建命令**: `npm run build`
+- **输出目录**: `dist/web`
+
+### 部署步骤
+
+1. 将代码推送到 GitHub 仓库
+2. 在帽子云平台中创建应用
+3. 连接 GitHub 仓库
+4. 选择 `main` 分支
+5. 配置构建设置：
+   - 构建命令: `npm run build`
+   - 输出目录: `dist/web`
+6. 点击部署
+
+### [帽子云](https://dash.maoziyun.com/) | [在线体验](https://sextest-cn.banlan.xx.kg/)
+
+### 注意事项
+
+- 帽子云平台部署时需要特别注意输出目录应设置为 `dist/web` 而不是默认的 `dist`
+- 如果遇到 404 错误，请检查平台的输出目录配置是否正确设置为 `dist/web`
 
 ## 📋 功能说明
 
@@ -164,8 +226,8 @@ SRI = Σ(标准化维度分数) → 0-100映射
 src/
 ├── components/          # React组件
 │   ├── assessment/      # 评估相关组件
-│   ├── common/         # 通用组件
-│   └── ui/             # shadcn/ui组件
+│   ├── common/          # 通用组件
+│   └── ui/              # shadcn/ui组件
 ├── pages/              # 页面组件
 ├── lib/                # 工具库
 │   ├── scales/         # 量表定义

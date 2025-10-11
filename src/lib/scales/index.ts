@@ -1149,66 +1149,71 @@ export const DEMOGRAPHICS_QUESTIONS = [
   {
     id: 'age',
     text: '您的年龄段',
+    enText: 'Your age group',
     type: 'multiple',
     options: [
-      { value: 0, label: '14-17岁' },
-      { value: 1, label: '18-24岁' },
-      { value: 2, label: '25-34岁' },
-      { value: 3, label: '35-44岁' },
-      { value: 4, label: '45-54岁' },
-      { value: 5, label: '55岁以上' }
+      { value: 0, label: '14-17岁 (青少年适应版)', enLabel: '14-17 years old (Teen Adaptation Version)' },
+      { value: 1, label: '18-24岁', enLabel: '18-24 years old' },
+      { value: 2, label: '25-34岁', enLabel: '25-34 years old' },
+      { value: 3, label: '35-44岁', enLabel: '35-44 years old' },
+      { value: 4, label: '45-54岁', enLabel: '45-54 years old' },
+      { value: 5, label: '55岁以上', enLabel: '55 years and above' }
     ],
     required: true
   },
   {
     id: 'gender',
     text: '您的性别认同(对自己)',
+    enText: 'Your gender identity (to yourself)',
     type: 'multiple',
     options: [
-      { value: 1, label: '男性' },
-      { value: 2, label: '女性' },
-      { value: 3, label: '非二元性别' },
-      { value: 4, label: '不愿回答' }
+      { value: 1, label: '男性', enLabel: 'Male' },
+      { value: 2, label: '女性', enLabel: 'Female' },
+      { value: 3, label: '非二元性别', enLabel: 'Non-binary' },
+      { value: 4, label: '不愿回答', enLabel: 'Prefer not to answer' }
     ],
     required: true
   },
   {
     id: 'relationshipStatus',
     text: '您目前的关系状态',
+    enText: 'Your current relationship status',
     type: 'multiple',
     options: [
-      { value: 1, label: '单身' },
-      { value: 2, label: '恋爱中' },
-      { value: 3, label: '已婚/同居' },
-      { value: 4, label: '不便回答' }
+      { value: 1, label: '单身', enLabel: 'Single' },
+      { value: 2, label: '恋爱中', enLabel: 'In a relationship' },
+      { value: 3, label: '已婚/同居', enLabel: 'Married/Living together' },
+      { value: 4, label: '不便回答', enLabel: 'Prefer not to answer' }
     ],
     required: true
   },
   {
     id: 'sexualActivity',
     text: '您的性经验状况',
+    enText: 'Your sexual experience status',
     type: 'multiple',
     options: [
-      { value: 0, label: '从未有过性行为' },
-      { value: 1, label: '有过性行为，但近一年内无' },
-      { value: 2, label: '很少（1-3次/年）' },
-      { value: 3, label: '偶尔（1-3次/月）' },
-      { value: 4, label: '经常（1-3次/周）' },
-      { value: 5, label: '频繁（4次/周以上）' }
+      { value: 0, label: '从未有过性行为 (无性经验适应版)', enLabel: 'Never had sexual behavior (Inexperienced Adaptation Version)' },
+      { value: 1, label: '有过性行为，但近一年内无 (低活跃度适应版)', enLabel: 'Had sexual behavior, but none in the past year (Low Activity Adaptation Version)' },
+      { value: 2, label: '很少（1-3次/年）', enLabel: 'Rarely (1-3 times/year)' },
+      { value: 3, label: '偶尔（1-3次/月）', enLabel: 'Occasionally (1-3 times/month)' },
+      { value: 4, label: '经常（1-3次/周）', enLabel: 'Often (1-3 times/week)' },
+      { value: 5, label: '频繁（4次/周以上）', enLabel: 'Frequently (4+ times/week)' }
     ],
     required: true
   },
   {
     id: 'religiousCultural',
     text: '您的宗教/文化背景（可选）',
+    enText: 'Your religious/cultural background (optional)',
     type: 'multiple',
     options: [
-      { value: 1, label: '无特定宗教' },
-      { value: 2, label: '基督教' },
-      { value: 3, label: '佛教' },
-      { value: 4, label: '伊斯兰教' },
-      { value: 5, label: '其他' },
-      { value: 6, label: '不愿回答' }
+      { value: 1, label: '无特定宗教', enLabel: 'No specific religion' },
+      { value: 2, label: '基督教', enLabel: 'Christianity' },
+      { value: 3, label: '佛教', enLabel: 'Buddhism' },
+      { value: 4, label: '伊斯兰教', enLabel: 'Islam' },
+      { value: 5, label: '其他', enLabel: 'Other' },
+      { value: 6, label: '不愿回答', enLabel: 'Prefer not to answer' }
     ],
     required: false
   }

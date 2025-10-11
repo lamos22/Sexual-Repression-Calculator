@@ -1,0 +1,287 @@
+{
+  "scales": {
+    "sis_ses_sf": {
+      "name": "SIS/SES-SF Sexual Inhibition/Sexual Excitation Scale Short Form",
+      "description": "Dual control model scale developed by Janssen et al., measuring sexual inhibition and excitation systems",
+      "questions": {
+        "ses_1": "I easily have sexual fantasies when I see attractive people",
+        "ses_2": "Sexual images or stories easily excite me",
+        "ses_3": "I am easily sexually aroused",
+        "ses_4": "Seeing nudity sexually excites me",
+        "sis1_1": "If I worry about my sexual performance, it's hard for me to maintain sexual excitement",
+        "sis1_2": "Unless I'm sure I won't disappoint my partner, it's hard for me to relax and enjoy sex",
+        "sis1_3": "When I think I might not satisfy my partner, I lose sexual interest",
+        "sis1_4": "If I worry about my sexual performance, it's hard for me to focus on sexual pleasure",
+        "sis1_5": "Distracting thoughts during sexual activity make me lose sexual excitement",
+        "sis2_1": "If I think there's a risk of being discovered, I'm less likely to seek sexual activity",
+        "sis2_2": "Worrying about sexually transmitted diseases reduces my sexual interest",
+        "sis2_3": "If there's risk, it's hard for me to maintain sexual excitement",
+        "sis2_4": "Worrying about pregnancy affects my sexual interest",
+        "sis2_5": "Unfamiliar or unfamiliar environments make it difficult for me to become sexually excited"
+      }
+    },
+    "mosher_guilt": {
+      "name": "Mosher Sexual Guilt Scale",
+      "description": "Mosher's sexual guilt scale, measuring guilt and moral burden related to sex",
+      "questions": {
+        "mg_1": "Sex is something dirty",
+        "mg_2": "Masturbation is harmful",
+        "mg_3": "Sexual behavior is only moral within marriage",
+        "mg_4": "Having sexual desires makes me feel guilty",
+        "mg_5": "Sexual fantasies are wrong",
+        "mg_6": "I feel ashamed of my sexual thoughts",
+        "mg_7": "Sex is something that can only be accepted under certain conditions",
+        "mg_8": "I worry that my sexual behavior is morally wrong",
+        "mg_9": "Enjoying sexual pleasure makes me feel guilty",
+        "mg_10": "Sexual impulses need to be controlled"
+      }
+    },
+    "kiss9_shame": {
+      "name": "KISS-9 Sexual Shame Scale",
+      "description": "Kyle et al.'s short version of the sexual shame scale, measuring shame experiences related to sex",
+      "questions": {
+        "ks_1": "I feel ashamed of my sexual body",
+        "ks_2": "I feel ashamed of my sexual thoughts",
+        "ks_3": "I feel ashamed of my sexual desires",
+        "ks_4": "I feel ashamed of my sexual behavior",
+        "ks_5": "I feel ashamed of my sexual feelings",
+        "ks_6": "I feel that my sexual nature is somehow defective",
+        "ks_7": "I wish I could change my sexual identity",
+        "ks_8": "I feel that as a sexual being, I have disappointed important people",
+        "ks_9": "I feel my sexual aspects are not as good as others"
+      }
+    },
+    "sos_screening": {
+      "name": "SOS Sexual Opinion Screening",
+      "description": "Simplified screening version of the Sexual Opinion Survey, measuring emotional orientation toward sexual stimuli",
+      "questions": {
+        "sos_1": "I feel uncomfortable with pornographic content",
+        "sos_2": "Sex-related topics make me feel embarrassed",
+        "sos_3": "I tend to avoid sexually suggestive content",
+        "sos_4": "Seeing sex-related images makes me feel uneasy",
+        "sos_5": "I think it's inappropriate to discuss sex publicly"
+      }
+    },
+    "sis_ses_full": {
+      "name": "SIS/SES Sexual Inhibition/Sexual Excitation Scale Full Version",
+      "description": "Janssen et al.'s full version of the dual control model scale, comprehensively measuring sexual inhibition and excitation systems",
+      "questions": {
+        "ses_5": "I easily become aroused when fantasizing about having sex with someone",
+        "ses_6": "Sexual excitement comes quickly and goes quickly",
+        "ses_7": "I easily become aroused when someone touches me sexually",
+        "ses_8": "Certain smells remind me of sex and excite me",
+        "ses_9": "I easily become sexually interested in unfamiliar people",
+        "ses_10": "I easily become aroused when I hear others talk about sex",
+        "ses_11": "Music can remind me of sex and excite me",
+        "ses_12": "Many things can remind me of sex",
+        "ses_13": "I feel I have a strong sex drive",
+        "ses_14": "When I watch romantic scenes in movies, I think of sex",
+        "ses_15": "I'm easily attracted to multiple types of people",
+        "ses_16": "I often find myself thinking about sex",
+        "sis1_6": "I need my genitals to be fully accepted by my partner, otherwise I can't stay excited",
+        "sis1_7": "Unless I'm sure my partner is sexually attracted to me, it's hard for me to focus on my own pleasure",
+        "sis1_8": "If I worry about how my sexual performance will be judged, I lose sexual excitement",
+        "sis1_9": "Unless I feel capable sexually, I can't enjoy sex",
+        "sis1_10": "I can't focus on sexual pleasure because I worry about my body appearance",
+        "sis1_11": "When I worry about reaching orgasm, it's hard for me to maintain sexual excitement",
+        "sis1_12": "If I feel forced into sexual relations, I lose sexual interest",
+        "sis1_13": "Unless I feel safe, I can't be sexually aroused",
+        "sis1_14": "If I'm not sure I can satisfy my partner, it's hard for me to become excited",
+        "sis2_6": "If someone might hear us, I'm less likely to be sexually aroused",
+        "sis2_7": "When I first have sex with someone, it's hard for me to become aroused",
+        "sis2_8": "If I can't focus on what's happening, I lose sexual excitement",
+        "sis2_9": "Unless my partner seems to really want sex, it's hard for me to stay excited",
+        "sis2_10": "When I feel my partner isn't fully engaged, I lose sexual interest",
+        "sis2_11": "I need to feel a strong emotional connection with my partner to enjoy sex",
+        "sis2_12": "Drugs or alcohol make it hard for me to become sexually aroused",
+        "sis2_13": "Unless the mood is right, I can't truly focus on sexual pleasure",
+        "sis2_14": "If I worry about my partner's feelings, it's hard for me to focus on my own pleasure",
+        "sis2_15": "Sometimes I worry about the meaning of sexual contact, which interferes with my sexual excitement"
+      }
+    },
+    "mosher_guilt_full": {
+      "name": "Mosher Sexual Guilt Scale Full Version",
+      "description": "Mosher's full version of the sexual guilt scale, comprehensively measuring guilt and moral burden related to sex",
+      "questions": {
+        "mg_11": "I think sexual desire is a low human instinct",
+        "mg_12": "Talking about sex makes me feel uncomfortable",
+        "mg_13": "I think strong sexual desire is bad",
+        "mg_14": "I regret some of my past sexual experiences",
+        "mg_15": "I think sexual behavior should only be for reproduction",
+        "mg_16": "I feel uneasy about my sexual thoughts",
+        "mg_17": "I think enjoying sex is selfish",
+        "mg_18": "I worry that my sexual behavior will be judged by others",
+        "mg_19": "I think purity is more important than sexual experience",
+        "mg_20": "I feel uncomfortable with my sexual body",
+        "mg_21": "I think sex should be sacred and not treated casually",
+        "mg_22": "I'm troubled by my sexual impulses",
+        "mg_23": "I think sexual activity makes me impure",
+        "mg_24": "I worry that sexual behavior will affect my character",
+        "mg_25": "I think good people shouldn't have too many sexual thoughts",
+        "mg_26": "I feel ashamed of my sexual history",
+        "mg_27": "I think sexual desire distracts me from important things",
+        "mg_28": "I think controlling sexual impulses is a manifestation of moral cultivation"
+      }
+    },
+    "sos_full": {
+      "name": "SOS Sexual Opinion Scale Full Version",
+      "description": "Fisher et al.'s full version of the Sexual Opinion Survey, comprehensively measuring emotional orientation toward sexual stimuli",
+      "questions": {
+        "sos_6": "I think too much exposure to sexual content is harmful to people",
+        "sos_7": "I think most sex education materials are too explicit",
+        "sos_8": "I think sex should be private and not discussed publicly",
+        "sos_9": "I feel反感 to sexual content in the media",
+        "sos_10": "I think society is too open about sex",
+        "sos_11": "I think young people are exposed to sexual information too early",
+        "sos_12": "I have a negative attitude toward sex clubs or adult entertainment venues",
+        "sos_13": "I think sex research is unnecessary",
+        "sos_14": "I think publicly displaying intimate behavior is inappropriate",
+        "sos_15": "I feel uncomfortable with sex toys or sexual products",
+        "sos_16": "I think sex should occur naturally without special attention",
+        "sos_17": "I'm troubled by the concept of sexual diversity",
+        "sos_18": "I think sex counseling or sex therapy is embarrassing",
+        "sos_19": "I think traditional sexual values are more desirable",
+        "sos_20": "I'm cautious about modern society's sexual freedom",
+        "sos_21": "I think too much sexual information is confusing"
+      }
+    },
+    "bsas_brief": {
+      "name": "BSAS Brief Sexual Attitudes Scale",
+      "description": "Hendrick et al.'s short version of the sexual attitudes scale, measuring four dimensions of sexual attitudes",
+      "questions": {
+        "bsas_perm_1": "I don't need an emotional commitment to someone to have sex with them",
+        "bsas_perm_2": "I think premarital sex is acceptable",
+        "bsas_perm_3": "I think one-night stands are acceptable",
+        "bsas_perm_4": "I think having multiple sexual partners is okay",
+        "bsas_perm_5": "I think sex should only occur between married couples",
+        "bsas_perm_6": "I think sexual freedom is important",
+        "bsas_birth_1": "Contraception is both partners' responsibility",
+        "bsas_birth_2": "Women should be responsible for contraception",
+        "bsas_birth_3": "Men should be responsible for contraception",
+        "bsas_birth_4": "Using contraceptive measures is wise",
+        "bsas_birth_5": "I support family planning",
+        "bsas_birth_6": "Sex education should include contraceptive information",
+        "bsas_comm_1": "Talking about sex is difficult",
+        "bsas_comm_2": "I think discussing sex with my partner is important",
+        "bsas_comm_3": "I find it difficult to express sexual needs",
+        "bsas_comm_4": "I can easily talk about sex with friends",
+        "bsas_comm_5": "I think open sexual communication is key to healthy relationships",
+        "bsas_inst_1": "Sex is mainly for physical pleasure",
+        "bsas_inst_2": "The most important part of sex is enjoyment",
+        "bsas_inst_3": "Sex doesn't need love",
+        "bsas_inst_4": "Sex can be purely physical activity",
+        "bsas_inst_5": "Sex is mainly for emotional connection",
+        "bsas_inst_6": "I think sex should always be romantic"
+      }
+    },
+    "teen_sexual_attitudes": {
+      "name": "Teen Sexual Attitudes Scale",
+      "description": "Assessment of sexual attitudes and sexual cognition for adolescents",
+      "questions": {
+        "tsa_1": "I feel confused about sex education content",
+        "tsa_2": "I find it embarrassing to talk about sex topics",
+        "tsa_3": "I think it's important to understand sexual knowledge",
+        "tsa_4": "I feel uneasy about changes in my body",
+        "tsa_5": "I worry that others will judge my sexual thoughts",
+        "tsa_6": "I think sexual impulses are bad",
+        "tsa_7": "I think teenagers shouldn't have sexual thoughts",
+        "tsa_8": "I feel uncomfortable with sexual content in the media",
+        "tsa_9": "I think sex education should take place in the family",
+        "tsa_10": "I feel ashamed of my sexual curiosity"
+      }
+    },
+    "sexual_cognition": {
+      "name": "Sexual Cognition Scale",
+      "description": "Measuring cognitive attitudes toward sex and psychological readiness",
+      "questions": {
+        "sc_1": "I feel nervous about the topic of sex",
+        "sc_2": "I think sex is natural and beautiful",
+        "sc_3": "I worry about future sexual experiences",
+        "sc_4": "I think sex is only appropriate under certain conditions",
+        "sc_5": "I feel I don't know enough about sexual knowledge",
+        "sc_6": "I think sexual fantasies are immoral",
+        "sc_7": "I think sex should be an expression of love",
+        "sc_8": "I feel ashamed of my sexual body",
+        "sc_9": "I think discussing sex topics is important",
+        "sc_10": "I worry that others will know my sexual thoughts"
+      }
+    },
+    "sis_ses_adapted": {
+      "name": "SIS/SES Adapted Scale",
+      "description": "Sexual inhibition/excitation tendency scale for users without sexual experience",
+      "questions": {
+        "sisa_1": "I easily have romantic thoughts when I see attractive people",
+        "sisa_2": "Romantic images or stories easily evoke emotional responses in me",
+        "sisa_3": "I'm easily moved by romantic situations",
+        "sisa_4": "Thoughts of intimate contact make me nervous",
+        "sisa_5": "I worry about disappointing my partner in intimate relationships",
+        "sisa_6": "I feel that many conditions are needed to relax in intimate relationships",
+        "sisa_7": "If I feel at risk, I will avoid intimate contact",
+        "sisa_8": "Unfamiliar or unfamiliar environments make it difficult for me to express intimate emotions"
+      }
+    }
+  },
+  "demographics": {
+    "questions": {
+      "age": "Your age group",
+      "gender": "Your gender identity (to yourself)",
+      "relationshipStatus": "Your current relationship status",
+      "sexualActivity": "Your sexual experience status",
+      "religiousCultural": "Your religious/cultural background (optional)"
+    },
+    "options": {
+      "age": {
+        "0": "14-17 years old (Teen Adaptation Version)",
+        "1": "18-24 years old",
+        "2": "25-34 years old",
+        "3": "35-44 years old",
+        "4": "45-54 years old",
+        "5": "55 years and above"
+      },
+      "gender": {
+        "1": "Male",
+        "2": "Female",
+        "3": "Non-binary",
+        "4": "Prefer not to answer"
+      },
+      "relationshipStatus": {
+        "1": "Single",
+        "2": "In a relationship",
+        "3": "Married/Living together",
+        "4": "Prefer not to answer"
+      },
+      "sexualActivity": {
+        "0": "Never had sexual behavior (Inexperienced Adaptation Version)",
+        "1": "Had sexual behavior, but none in the past year (Low Activity Adaptation Version)",
+        "2": "Rarely (1-3 times/year)",
+        "3": "Occasionally (1-3 times/month)",
+        "4": "Often (1-3 times/week)",
+        "5": "Frequently (4+ times/week)"
+      },
+      "religiousCultural": {
+        "1": "No specific religion",
+        "2": "Christianity",
+        "3": "Buddhism",
+        "4": "Islam",
+        "5": "Other",
+        "6": "Prefer not to answer"
+      }
+    }
+  },
+  "options": {
+    "likert": {
+      "1": "Strongly Disagree",
+      "2": "Disagree",
+      "3": "Neutral",
+      "4": "Agree",
+      "5": "Strongly Agree"
+    },
+    "frequency": {
+      "1": "Never",
+      "2": "Rarely",
+      "3": "Sometimes",
+      "4": "Often",
+      "5": "Always"
+    }
+  }
+}

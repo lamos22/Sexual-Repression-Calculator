@@ -8,7 +8,7 @@ import {Progress} from '@/components/ui/progress';
 import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader,} from '@/components/ui/dialog';
 import {AlertCircle, ArrowLeft, ArrowUp, BarChart3, CheckCircle, ChevronLeft, ChevronRight} from 'lucide-react';
 import {Demographics, Question, Response} from '@/types';
-import {ALL_SCALES, getAdaptiveFullScales, getAdaptiveScales, getUserGroupDescription, getUserGroupDescriptionEn} from '@/lib/scales';
+import {ALL_SCALES, getAdaptiveFullScales, getAdaptiveScales, getUserGroupDescription} from '@/lib/scales';
 import { getLocalizedScale } from '@/lib/scales/i18n'; // 添加国际化支持
 import { useTranslation } from 'react-i18next'; // 添加国际化支持
 
@@ -148,7 +148,7 @@ export function QuestionnaireList({
   };
 
   const scaleIds = getScalesForUser();
-  const userGroup = i18n.language === 'en' ? getUserGroupDescriptionEn(demographics) : getUserGroupDescription(demographics);
+  const userGroup = getUserGroupDescription(demographics);
   
   // 显示选中的量表信息
   console.log(`用户群体: ${userGroup}, 选中量表:`, scaleIds);
@@ -160,7 +160,18 @@ export function QuestionnaireList({
   const [scrollToQuestionId, setScrollToQuestionId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [showBackConfirm, setShowBackConfirm] = useState(false);
+
+  // 监听滚动，显示/隐藏回到顶部按钮
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // 自动保存功能 - 使用debounced保存避免频繁操作
   useEffect(() => {
@@ -360,6 +371,14 @@ export function QuestionnaireList({
     setCurrentPage(newPage);
     // 只在顶部导航栏切换时才自动滚动到顶部
     // 底部切换时不滚动，让用户自己决定
+  };
+
+  // 回到顶部
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   const stats = getAnswerStats();
@@ -667,6 +686,26 @@ export function QuestionnaireList({
           </div>
         </CardContent>
       </Card>
+
+      {/* 回到顶部悬浮按钮 */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="
+            fixed bottom-6 right-6 z-50
+            w-12 h-12 rounded-full
+            bg-psychology-primary text-white
+            shadow-lg hover:shadow-xl
+            flex items-center justify-center
+            transition-all duration-300 ease-out
+            hover:scale-110 active:scale-95
+            animate-in fade-in slide-in-from-bottom-4
+          "
+          aria-label={currentLanguage === 'en' ? 'Back to Top' : '回到顶部'}
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      )}
 
       {/* 返回确认对话框 */}
       <Dialog open={showBackConfirm} onOpenChange={setShowBackConfirm}>

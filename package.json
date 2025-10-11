@@ -13,7 +13,8 @@
     "type-check": "tsc -b --pretty",
     "lint": "tsc -b --pretty",
     "preview": "rsbuild preview",
-    "start": "cd ./dist && deno run --allow-net --allow-read server.cjs"
+    "start": "cd ./dist && deno run --allow-net --allow-read server.cjs",
+    "build:vercel": "rsbuild build -c rsbuild.config.cloudflare.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.4",
@@ -53,6 +54,7 @@
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
     "hono": "^4.7.11",
+    "i18next": "^25.5.3",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.484.0",
     "motion": "^12.16.0",
@@ -61,6 +63,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.57.0",
+    "react-i18next": "^16.0.0",
     "react-resizable-panels": "^3.0.2",
     "react-router-dom": "^7.6.2",
     "recharts": "^2.15.3",
