@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build:client",
+  "outputDirectory": "dist/web",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
