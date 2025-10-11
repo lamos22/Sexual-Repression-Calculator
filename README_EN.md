@@ -75,6 +75,8 @@ This project is optimized for Cloudflare Pages deployment and can be easily depl
    - Output directory: `dist`
 5. Click Deploy
 
+### [Cloudflare](https://dash.cloudflare.com/) | [demo](https://sextest.banlan.qzz.io/)
+
 ### Anti-Abuse Features
 
 To prevent the project from being maliciously resold, this project provides two anti-abuse mechanisms:
@@ -122,6 +124,8 @@ This project also supports deployment to the Vercel platform.
    - Output directory: `dist`
 4. Click Deploy
 
+### [Vercel](https://vercel.com/) | do not provide demo
+
 ### Environment Variables Configuration
 
 Vercel deployment does not require special environment variable configuration, but if you want to enable anti-abuse features, you can add the following environment variables:
@@ -150,6 +154,8 @@ This project also supports deployment to Hat Cloud platform.
    - Build command: `npm run build`
    - Output directory: `dist/web`
 6. Click Deploy
+
+### [maoziyun](https://dash.maoziyun.com/) | [demo](https://sextest-cn.banlan.xx.kg/)
 
 ### Notes
 
